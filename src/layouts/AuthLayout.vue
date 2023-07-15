@@ -89,7 +89,7 @@ const banners = [
                   <button
                     :class="`${
                       i == indexBanner
-                        ? 'tw-w-10 bg-primary-900'
+                        ? 'tw-w-12 bg-primary-900'
                         : 'tw-w-4 tw-bg-white'
                     }`"
                     class="tw-h-4 tw-rounded-full tw-cursor-pointer"
