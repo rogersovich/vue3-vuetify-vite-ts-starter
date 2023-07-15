@@ -10,34 +10,22 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 import pkg from './package.json';
 
-/**
- * Vite Configure
- *
- * @see {@link https://vitejs.dev/config/}
- */
 export default defineConfig(({ command, mode }): UserConfig => {
   const config: UserConfig = {
-    // https://vitejs.dev/config/shared-options.html#base
     base: './',
-    // https://vitejs.dev/config/shared-options.html#define
     define: { 'process.env': {} },
     plugins: [
-      // Vue3
       // @ts-expect-error
       vue({
         template: {
           transformAssetUrls,
         },
       }),
-      // Vuetify Loader
-      // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin
       // @ts-expect-error
       vuetify({
         autoImport: true,
         styles: { configFile: 'src/styles/settings.scss' },
       }),
-      // vite-plugin-checker
-      // https://github.com/fi3ework/vite-plugin-checker
       checker({
         typescript: true,
         vueTsc: true,
@@ -51,7 +39,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
         },
       }),
     ],
-    // https://vitejs.dev/config/server-options.html
     server: {
       fs: {
         // Allow serving files from one level up to the project root
@@ -60,7 +47,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
     },
     // Resolver
     resolve: {
-      // https://vitejs.dev/config/shared-options.html#resolve-alias
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
@@ -71,13 +57,10 @@ export default defineConfig(({ command, mode }): UserConfig => {
     // https://vitejs.dev/config/build-options.html
     build: {
       // Build Target
-      // https://vitejs.dev/config/build-options.html#build-target
       target: 'esnext',
       // Minify option
-      // https://vitejs.dev/config/build-options.html#build-minify
       minify: 'esbuild',
       // Rollup Options
-      // https://vitejs.dev/config/build-options.html#build-rollupoptions
       rollupOptions: {
         output: {
           manualChunks: {

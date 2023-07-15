@@ -10,6 +10,8 @@ import App from '@/App.vue';
 import vuetify from '@/plugins/vuetify';
 import router from '@/router';
 
+import './styles/index.css';
+
 /** Register Vue */
 const vue = createApp(App);
 vue.use(router);
