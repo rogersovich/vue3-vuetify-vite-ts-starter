@@ -1,7 +1,11 @@
 /**
  * Vuetify3 Plugin
  */
-import { createVuetify, type VuetifyOptions } from 'vuetify';
+import {
+  createVuetify,
+  type ThemeDefinition,
+  type VuetifyOptions,
+} from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
@@ -18,26 +22,42 @@ import '@mdi/font/css/materialdesignicons.css';
 
 await loadFonts();
 
-/**
- * Vuetify Components
- *
- * @see {@link https://vuetifyjs.com/en/features/treeshaking/}
- */
-let vuetifyConfig: VuetifyOptions = {
-  // Global configuration
-  // https://vuetifyjs.com/en/features/global-configuration/
-  /*
-  defaults: {
-    global: {
-      ripple: false,
-    },
-    VSheet: {
-      elevation: 4,
-    },
+const customTheme: ThemeDefinition = {
+  dark: false,
+  colors: {
+    background: '#FFFFFF',
+    surface: '#FFFFFF',
+    'primary-50': '#E1F4FE',
+    'primary-100': '#B6BBD0',
+    'primary-200': '#888FB0',
+    'primary-300': '#5B6591',
+    'primary-500': '#04A5F4',
+    'primary-600': '#0796E5',
+    'primary-700': '#0984D1',
+    'primary-900': '#08539A',
+    secondary: '#03DAC6',
+    'secondary-blue-dark': '#000037',
+    'secondary-blue': '#559BD9',
+    'secondary-orange': '#F15D2B',
+    'secondary-red': '#EC4B5A',
+    error: '#E53935',
+    info: '#559BD9',
+    success: '#09A262',
+    'warning-red': '#FF2442',
+    'warning-green': '#09A262',
   },
-  */
+};
+
+let vuetifyConfig: VuetifyOptions = {
+  defaults: {
+    // global: {
+    //   ripple: false,
+    // },
+    // VSheet: {
+    //   elevation: 4,
+    // },
+  },
   // Icon Fonts
-  // https://vuetifyjs.com/en/features/icon-fonts/
   icons: {
     defaultSet: 'mdi',
     aliases,
@@ -46,16 +66,17 @@ let vuetifyConfig: VuetifyOptions = {
     },
   },
   // Internationalization (i18n)
-  // https://vuetifyjs.com/en/features/internationalization/#internationalization-i18n
   locale: {
     locale: 'en',
     fallback: 'en',
     messages: { en },
   },
   // Theme
-  // https://vuetifyjs.com/en/features/theme/
   theme: {
     defaultTheme: 'light',
+    themes: {
+      light: customTheme,
+    },
   },
 };
 

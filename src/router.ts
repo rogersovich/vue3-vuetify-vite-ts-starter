@@ -9,7 +9,7 @@ import {
 } from 'vue-router';
 
 // Components
-import HomeView from '@/views/HomeView.vue';
+// import HomeView from '@/views/HomeView.vue';
 
 //? Layout
 import AuthLayout from '@/layouts/AuthLayout.vue';
@@ -23,22 +23,28 @@ import AuthLayout from '@/layouts/AuthLayout.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Home',
-    component: HomeView,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: async () => await import('@/views/AboutView.vue'),
+    redirect: '/auth/login',
   },
   {
     path: '/auth',
     component: AuthLayout,
     children: [
       {
+        path: '',
+        redirect: '/auth/login',
+      },
+      {
         path: 'login',
         name: 'Login',
         component: async () => await import('@/views/auth/LoginPage.vue'),
+        meta: {
+          group: 'Auth',
+        },
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: async () => await import('@/views/auth/RegisterPage.vue'),
         meta: {
           group: 'Auth',
         },

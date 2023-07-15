@@ -10,8 +10,10 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "module": "Node16",
-    "types": ["node", "vuetify"]
+    "types": ["node", "vuetify", "vite/client","vite-svg-loader"]
   }
 }

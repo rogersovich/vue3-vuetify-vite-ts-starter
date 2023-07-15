@@ -7,6 +7,7 @@ import { defineConfig, type UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import svgLoader from 'vite-svg-loader';
 
 import pkg from './package.json';
 
@@ -15,6 +16,9 @@ export default defineConfig(({ command, mode }): UserConfig => {
     base: './',
     define: { 'process.env': {} },
     plugins: [
+      svgLoader({
+        defaultImport: 'component',
+      }),
       // @ts-expect-error
       vue({
         template: {

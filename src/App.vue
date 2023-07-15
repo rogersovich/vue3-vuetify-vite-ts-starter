@@ -105,7 +105,7 @@ onMounted(() => {
 
     <v-main>
       <router-view v-slot="{ Component, route }">
-        <component :is="Component" :key="route.name" />
+        <component :is="Component" :key="route.name" class="tw-tracking-wide" />
       </router-view>
     </v-main>
 
@@ -131,3 +131,10 @@ onMounted(() => {
     <link rel="icon" :href="logo" type="image/svg+xml" />
   </teleport> -->
 </template>
+
+<style>
+.v-btn {
+  text-transform: capitalize !important;
+  letter-spacing: 0.7px !important;
+}
+</style>
