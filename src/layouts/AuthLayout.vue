@@ -39,7 +39,7 @@ const banners = [
   <main>
     <v-row align="start" no-gutters class="tw-h-screen">
       <v-col
-        :cols="route.name == 'Register' ? 5 : 8"
+        :cols="route.name == 'Register' ? 4 : 8"
         class="bg-primary-600 tw-h-screen"
       >
         <div
@@ -61,21 +61,21 @@ const banners = [
                   <v-carousel-item v-for="(banner, i) in banners" :key="i">
                     <div class="tw-px-20">
                       <div
-                        class="tw-text-center tw-font-bold tw-text-2xl tw-whitespace-pre"
+                        class="tw-text-center tw-font-bold tw-text-3xl tw-whitespace-pre"
                       >
                         {{ banner.title }}
                       </div>
                       <div
                         class="tw-flex tw-justify-center tw-items-center tw-py-6"
                       >
-                        <v-img :src="banner.img" height="300" width="200" />
+                        <v-img :src="banner.img" height="400" />
                       </div>
                       <div
-                        class="tw-text-center tw-font-bold tw-text-lg tw-whitespace-pre"
+                        class="tw-text-center tw-font-bold tw-text-xl tw-whitespace-pre"
                       >
                         {{ banner.subtitle }}
                       </div>
-                      <div class="tw-text-center tw-text-sm">
+                      <div class="tw-text-center tw-text-base">
                         {{ banner.desc }}
                       </div>
                     </div>
@@ -107,7 +107,7 @@ const banners = [
           </div>
         </div>
       </v-col>
-      <v-col :cols="route.name == 'Register' ? 7 : 4" class="tw-h-screen">
+      <v-col :cols="route.name == 'Register' ? 8 : 4" class="tw-h-screen">
         <router-view />
       </v-col>
     </v-row>

@@ -50,6 +50,7 @@ rules:
   spaced-comment: off
   eqeqeq: off
   click-events-have-key-events: off
+  vue/no-v-html: off
   vue/html-self-closing: # A tag with no content should be written like <br />.
     - error
     - html:

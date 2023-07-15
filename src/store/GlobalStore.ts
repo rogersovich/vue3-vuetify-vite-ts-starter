@@ -3,7 +3,7 @@ import { ref, type Ref } from 'vue';
 
 /** Global Store */
 const useGlobalStore = defineStore('global', () => {
-  // State
+  //* State
 
   /** Loading overlay */
   const loading: Ref<boolean> = ref(true);
@@ -12,7 +12,7 @@ const useGlobalStore = defineStore('global', () => {
   /** SnackBar Text */
   const message: Ref<string> = ref('');
 
-  // Actions
+  //* Actions
 
   /**
    * Show loading Overlay
@@ -49,7 +49,15 @@ const useGlobalStore = defineStore('global', () => {
     message.value = msg;
   }
 
-  return { loading, progress, message, setLoading, setProgress, setMessage };
+  return {
+    loading,
+    progress,
+    message,
+
+    setLoading,
+    setProgress,
+    setMessage,
+  };
 });
 
 export default useGlobalStore;
