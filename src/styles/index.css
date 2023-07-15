@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .button-social-media {
+    @apply tw-flex tw-items-center tw-w-full tw-border tw-border-gray-300 tw-rounded-md tw-py-2.5 tw-px-4 tw-cursor-pointer;
+  }
+
+  .label-social-media {
+    @apply tw-flex-1 tw-text-center tw-font-bold tw-text-lg;
+  }
+
+  .button-link {
+    @apply tw-underline tw-text-sm;
+  }
+}
+
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 300;

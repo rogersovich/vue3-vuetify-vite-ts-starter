@@ -22,3 +22,12 @@ export const schemaValidationRegister = {
     .oneOf([true], 'Agree Newsletter is required.'),
   agree_terms: yup.boolean().oneOf([true], 'Agree Term is required.'),
 };
+
+export const schemaValidationLogin = {
+  email: yup
+    .string()
+    .required('Email is required')
+    .email('Format must be Email'),
+
+  password: yup.string().required('Password is required').min(6),
+};
