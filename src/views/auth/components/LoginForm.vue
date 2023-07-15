@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import * as yup from 'yup';
 import { reactive, ref } from 'vue';
 import { useForm } from 'vee-validate';
 import { useRouter } from 'vue-router';
-import * as yup from 'yup';
+import { useDisplay } from 'vuetify';
 
 import { schemaValidationLogin } from '../validation/auth';
 import FieldText from '@/components/field/FieldText.vue';
 import FieldCheckbox from '@/components/field/FieldCheckbox.vue';
 
 const router = useRouter();
+
+const { mobile } = useDisplay();
 
 const showPassword = ref(true);
 const toggleShowPassword = () => {
@@ -87,22 +90,25 @@ const onSubmit = handleSubmit(values => {
         </v-col>
       </v-row>
 
-      <div class="tw-mt-6 tw-flex tw-justify-between tw-gap-3">
+      <div class="tw-mt-6 md:tw-flex md:tw-justify-between md:tw-gap-3">
         <v-btn
           variant="flat"
           color="secondary-red"
           type="submit"
           class="tw-px-6"
+          :block="mobile"
         >
-          Submit
+          Login
         </v-btn>
-        <button
-          type="button"
-          class="button-link text-secondary-blue-dark"
-          @click="router.push({ name: 'Register' })"
-        >
-          Dont have Account ? Register now
-        </button>
+        <div class="tw-text-center md:tw-text-left tw-mt-3 md:tw-mt-0">
+          <button
+            type="button"
+            class="button-link text-secondary-blue-dark"
+            @click="router.push({ name: 'Register' })"
+          >
+            Dont have Account ? Register now
+          </button>
+        </div>
       </div>
     </form>
   </div>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import * as yup from 'yup';
 import { reactive, ref } from 'vue';
 import { useForm } from 'vee-validate';
 import { useRouter } from 'vue-router';
-import * as yup from 'yup';
+import { useDisplay } from 'vuetify';
 
 import FieldText from '@/components/field/FieldText.vue';
 import FieldCheckbox from '@/components/field/FieldCheckbox.vue';
@@ -12,6 +13,8 @@ import { schemaValidationRegister } from '../validation/auth';
 const emit = defineEmits(['updateIsRegister']);
 
 const router = useRouter();
+
+const { mobile } = useDisplay();
 
 const showPassword = ref(true);
 const toggleShowPassword = () => {
@@ -47,7 +50,7 @@ const onSubmit = handleSubmit(values => {
   <div>
     <form @submit="onSubmit">
       <v-row>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <FieldText
             v-model="form.company_name"
             label="Company Name"
@@ -55,7 +58,7 @@ const onSubmit = handleSubmit(values => {
             placeholder="e.g John"
           />
         </v-col>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <FieldText
             v-model="form.fullname"
             label="Fullname"
@@ -63,7 +66,7 @@ const onSubmit = handleSubmit(values => {
             placeholder="e.g Doe"
           />
         </v-col>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <FieldText
             v-model="form.email"
             type="email"
@@ -72,7 +75,7 @@ const onSubmit = handleSubmit(values => {
             placeholder="e.g john.doe@mail.com"
           />
         </v-col>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <div
             class="tw-mb-1.5 tw-text-base tw-font-bold text-secondary-blue-dark"
           >
@@ -100,7 +103,7 @@ const onSubmit = handleSubmit(values => {
             </div>
           </div>
         </v-col>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <FieldText
             v-model="form.password"
             :type="showPassword ? 'password' : 'text'"
@@ -119,7 +122,7 @@ const onSubmit = handleSubmit(values => {
             </template>
           </FieldText>
         </v-col>
-        <v-col cols="6">
+        <v-col :cols="mobile ? 12 : 6">
           <FieldText
             v-model="form.pass_confirm"
             :type="showPasswordConfirm ? 'password' : 'text'"
@@ -140,7 +143,7 @@ const onSubmit = handleSubmit(values => {
         </v-col>
       </v-row>
       <v-row no-gutters class="tw-mt-2">
-        <v-col cols="8">
+        <v-col cols="12">
           <FieldCheckbox
             v-model="form.agree_newsletter"
             name="agree_newsletter"
@@ -154,7 +157,7 @@ const onSubmit = handleSubmit(values => {
             </template>
           </FieldCheckbox>
         </v-col>
-        <v-col cols="8">
+        <v-col cols="12">
           <FieldCheckbox v-model="form.agree_terms" name="agree_terms">
             <template #label>
               <div
@@ -171,22 +174,25 @@ const onSubmit = handleSubmit(values => {
           </FieldCheckbox>
         </v-col>
       </v-row>
-      <div class="tw-mt-6 tw-flex tw-justify-between tw-gap-3">
+      <div class="tw-mt-6 md:tw-flex md:tw-justify-between md:tw-gap-3">
         <v-btn
           variant="flat"
           color="secondary-red"
           type="submit"
           class="tw-px-6"
+          :block="mobile"
         >
           Submit
         </v-btn>
-        <button
-          type="button"
-          class="button-link text-secondary-blue-dark"
-          @click="router.push({ name: 'Login' })"
-        >
-          Already have Account ? Login now
-        </button>
+        <div class="tw-text-center md:tw-text-left tw-mt-3 md:tw-mt-0">
+          <button
+            type="button"
+            class="button-link text-secondary-blue-dark"
+            @click="router.push({ name: 'Login' })"
+          >
+            Already have Account ? Login now
+          </button>
+        </div>
       </div>
     </form>
   </div>

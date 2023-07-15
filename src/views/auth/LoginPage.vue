@@ -9,7 +9,7 @@ import CustomDivider from '@/components/CustomDivider.vue';
 
 <template>
   <div
-    class="tw-flex tw-justify-start tw-items-center tw-h-screen tw-py-6 tw-px-10 tw-w-full"
+    class="tw-flex tw-justify-start tw-items-center tw-h-screen tw-py-6 tw-px-6 md:tw-px-10 tw-w-full"
   >
     <div class="tw-w-full">
       <div><LogoAxdif width="150" /></div>
@@ -24,12 +24,22 @@ import CustomDivider from '@/components/CustomDivider.vue';
 
         <CustomDivider>
           <template #default>
-            <div class="tw-text-xs tw-text-center">Or continue with email</div>
+            <div class="tw-text-sm md:tw-text-xs tw-text-center">
+              Or continue with email
+            </div>
           </template>
         </CustomDivider>
 
         <LoginForm />
-        <br />
+
+        <div
+          class="tw-flex tw-items-center tw-justify-center tw-gap-2 text-primary-300 tw-text-sm tw-mt-10"
+        >
+          <div>Privacy Policy</div>
+          <div>•</div>
+          <div>Terms & Condition</div>
+        </div>
+
         <div class="text-secondary-blue-dark tw-mt-8 tw-text-sm tw-text-center">
           © Copyright {{ new Date().getFullYear() }}. All Right Reserved.
         </div>

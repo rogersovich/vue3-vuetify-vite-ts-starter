@@ -137,4 +137,27 @@ onMounted(() => {
   text-transform: capitalize !important;
   letter-spacing: 0.7px !important;
 }
+.v-field__outline {
+  color: #888fb0;
+}
+
+.v-text-field ::placeholder {
+  color: #888fb0 !important;
+}
+.v-text-field input {
+  color: #6e7da5 !important;
+}
+.v-select .v-select__selection {
+  color: #6e7da5 !important;
+}
+.v-field__append-inner {
+  color: #6e7da5 !important;
+}
+.v-selection-control__input > .v-icon {
+  color: #6e7da5 !important;
+}
+
+.mdi-checkbox-marked::before {
+  color: #0796e5;
+}
 </style>
