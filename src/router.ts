@@ -11,6 +11,9 @@ import {
 // Components
 import HomeView from '@/views/HomeView.vue';
 
+//? Layout
+import AuthLayout from '@/layouts/AuthLayout.vue';
+
 // Pinia Store
 
 // Unimplemented in Vuetify 3.3.1
@@ -26,21 +29,27 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: async () => await import('@/views/AboutView.vue'),
+  },
+  {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component: async () => await import('@/views/auth/LoginPage.vue'),
+        meta: {
+          group: 'Auth',
+        },
+      },
+    ],
   },
 ];
 
 /** Vue Router */
 const router: Router = createRouter({
-  /**
-   * History Mode
-   *
-   * @see {@link https://router.vuejs.org/guide/essentials/history-mode.html }
-   */
-  history: createWebHistory(import.meta.env.BASE_URL), // createWebHashHistory(import.meta.env.BASE_URL)
+  history: createWebHistory(import.meta.env.BASE_URL),
   /*
   scrollBehavior: (to, _from, savedPosition) => {
     let scrollTo: number | string = 0;

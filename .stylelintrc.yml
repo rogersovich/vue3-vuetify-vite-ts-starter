@@ -13,3 +13,5 @@ rules:
   function-no-unknown: null
   no-descending-specificity: null
   scss/no-global-function-names: null
+  no-empty-source: null
+  block-no-empty: null
