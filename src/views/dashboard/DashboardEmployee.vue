@@ -39,7 +39,9 @@ const displatDate = ref(0);
         >
           <div class="tw-text-sm">Periode</div>
           <v-btn border variant="flat" append-icon="mdi-calendar-blank-outline">
-            <div class="tw-font-bold">2022</div>
+            <div class="tw-font-bold">
+              {{ new Date().getFullYear() }}
+            </div>
 
             <template #append>
               <v-icon color="primary-500" />

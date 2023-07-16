@@ -13,7 +13,7 @@ const configStore = useConfig();
     <div class="tw-text-xl tw-font-bold text-secondary">
       Attendance Completeness
     </div>
-    <div class="tw-my-5 fcc tw-h-[500px]">
+    <div class="tw-my-5">
       <AttendanceCompletenessChart />
     </div>
   </div>
