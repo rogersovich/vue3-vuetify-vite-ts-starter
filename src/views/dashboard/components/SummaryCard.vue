@@ -28,7 +28,12 @@ const selectDate = () => {
       <div class="tw-text-xl tw-font-bold">Summary</div>
       <div class="fcs tw-gap-4">
         <div class="tw-text-sm">Periode</div>
-        <VueDatePicker ref="dp" v-model="date" month-picker>
+        <VueDatePicker
+          ref="dp"
+          v-model="date"
+          month-picker
+          :dark="configStore.theme"
+        >
           <template #trigger>
             <v-btn
               border

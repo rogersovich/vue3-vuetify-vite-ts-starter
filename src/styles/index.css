@@ -160,16 +160,16 @@ body {
 }
 
 .dp__theme_light {
-  --dp-background-color: #12204d;
-  --dp-text-color: #fff;
+  --dp-background-color: #fff;
+  --dp-text-color: #212121;
   --dp-hover-color: #f3f3f3;
   --dp-hover-text-color: #212121;
   --dp-hover-icon-color: #959595;
   --dp-primary-color: #1976d2;
   --dp-primary-text-color: #f8f5f5;
   --dp-secondary-color: #c0c4cc;
-  --dp-border-color: #0d183d;
-  --dp-menu-border-color: #0d183d;
+  --dp-border-color: #ddd;
+  --dp-menu-border-color: #ddd;
   --dp-border-color-hover: #aaaeb7;
   --dp-disabled-color: #f6f6f6;
   --dp-scroll-bar-background: #f3f3f3;
