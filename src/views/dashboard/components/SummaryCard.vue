@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 import { useConfig } from '@/store';
-import DividerDashboard from '@/components/DividerDashboard.vue';
 import { SUMMARY } from '@/constant/dashboard';
+import { formatDatePicker } from '@/helpers/getFormatDate';
+import DividerDashboard from '@/components/DividerDashboard.vue';
 
 /** Config Store */
 const configStore = useConfig();
+
+const date = ref({
+  month: new Date().getMonth(),
+  year: new Date().getFullYear(),
+});
+const dp = ref();
+
+const selectDate = () => {
+  dp.value.selectDate();
+};
 </script>
 <template>
   <div
@@ -15,13 +28,28 @@ const configStore = useConfig();
       <div class="tw-text-xl tw-font-bold">Summary</div>
       <div class="fcs tw-gap-4">
         <div class="tw-text-sm">Periode</div>
-        <v-btn border variant="text" append-icon="mdi-calendar-blank-outline">
-          <div class="tw-font-semibold tw-text-sm">November 2023</div>
+        <VueDatePicker ref="dp" v-model="date" month-picker>
+          <template #trigger>
+            <v-btn
+              border
+              variant="text"
+              append-icon="mdi-calendar-blank-outline"
+            >
+              <div class="tw-font-semibold tw-text-sm">
+                {{ formatDatePicker({ month: date.month, year: date.year }) }}
+              </div>
 
-          <template #append>
-            <v-icon color="primary-500" />
+              <template #append>
+                <v-icon color="primary-500" />
+              </template>
+            </v-btn>
           </template>
-        </v-btn>
+          <template #action-buttons>
+            <v-btn variant="flat" color="primary-500" @click="selectDate">
+              Select
+            </v-btn>
+          </template>
+        </VueDatePicker>
       </div>
     </div>
     <DividerDashboard class="tw-my-5" />

@@ -50,3 +50,18 @@ export const TASK_DUE_SOON = [
     date: '11 Des 2023',
   },
 ];
+
+export const MONTH_NAMES = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
