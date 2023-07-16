@@ -58,7 +58,6 @@ const { value, errorMessage } = useField(() => props.name, undefined, {
       color="primary-600"
       :type="type"
       hide-details
-      theme="dark"
     >
       <template #prepend-inner>
         <div><slot name="prepend-inner" /></div>

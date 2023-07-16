@@ -82,7 +82,7 @@ const onSubmit = handleSubmit(values => {
             Phone Number (Optional)
           </div>
           <div class="tw-grid tw-grid-cols-12 tw-gap-3">
-            <div class="tw-col-span-3">
+            <div class="tw-col-span-4 md:tw-col-span-3">
               <v-select
                 v-model="form.phone_code"
                 :items="COUNTRY_FLAG"
@@ -94,7 +94,7 @@ const onSubmit = handleSubmit(values => {
                 hide-details
               />
             </div>
-            <div class="tw-col-span-9">
+            <div class="tw-col-span-8 md:tw-col-span-9">
               <FieldText
                 v-model="form.phone"
                 name="phone"
