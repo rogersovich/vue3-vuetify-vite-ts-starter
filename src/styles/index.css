@@ -4,7 +4,7 @@
 
 @layer base {
   .button-social-media {
-    @apply tw-flex tw-items-center tw-w-full tw-border tw-border-gray-300 tw-rounded-md tw-py-2.5 tw-px-4 tw-cursor-pointer;
+    @apply tw-flex tw-items-center tw-w-full tw-border-solid tw-border tw-border-gray-300 tw-rounded-md tw-py-2.5 tw-px-4 tw-cursor-pointer;
   }
 
   .label-social-media {
@@ -14,40 +14,61 @@
   .button-link {
     @apply tw-underline tw-text-sm;
   }
+
+  .grid-12 {
+    @apply tw-grid tw-grid-cols-12;
+  }
+
+  .fcc {
+    @apply tw-flex tw-items-center tw-justify-center;
+  }
+
+  .fce {
+    @apply tw-flex tw-items-center tw-justify-end;
+  }
+  .fcs {
+    @apply tw-flex tw-items-center tw-justify-start;
+  }
+  .fcb {
+    @apply tw-flex tw-items-center tw-justify-between;
+  }
 }
 
+/* PROXIMA NOVA */
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 300;
   src: local('Proxima Nova light'),
-    url('../assets/fonts/proximanova-light.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-light.otf') format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 400;
   src: local('Proxima Nova Regular'),
-    url('../assets/fonts/proximanova-regular.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-regular.otf')
+      format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 500;
   src: local('Proxima Nova Medium'),
-    url('../assets/fonts/proximanova-medium.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-medium.otf') format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 600;
   src: local('Proxima Nova semibold'),
-    url('../assets/fonts/proximanova-semibold.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-semibold.otf')
+      format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
 @font-face {
   font-family: 'Proxima Nova';
   src: local('Proxima Nova Bold'),
-    url('..//assets/fonts/proximanova-bold.otf') format('opentype');
+    url('../assets/fonts/proximanova-bold.otf') format('opentype');
   font-weight: 700;
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
@@ -55,18 +76,71 @@
   font-family: 'Proxima Nova';
   font-weight: 800;
   src: local('Proxima Nova Extrabold'),
-    url('../assets/fonts/proximanova-extrabold.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-extrabold.otf')
+      format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 900;
   src: local('Proxima Nova black'),
-    url('../assets/fonts/proximanova-black.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-black.otf') format('opentype');
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
+}
+
+/* OPEN SANS */
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  src: local('Open Sans Light'),
+    url('../assets/fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  src: local('Open Sans Regular'),
+    url('../assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 500;
+  src: local('Open Sans Medium'),
+    url('../assets/fonts/OpenSans/OpenSans-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  src: local('Open Sans Semibold'),
+    url('../assets/fonts/OpenSans/OpenSans-Semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans Bold'),
+    url('../assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  src: local('Open Sans Extrabold'),
+    url('../assets/fonts/OpenSans/OpenSans-Extrabold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 900;
+  src: local('Open Sans Black'),
+    url('../assets/fonts/OpenSans/OpenSans-Black.ttf') format('truetype');
 }
 
 html,
 body {
   font-family: 'Proxima Nova' !important;
+}
+
+.font-open-sans {
+  font-family: 'Open Sans' !important;
+}
+
+.shadow-menu-profile {
+  box-shadow: 0px 0px 24px #0000000f !important;
 }

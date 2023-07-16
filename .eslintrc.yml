@@ -32,9 +32,9 @@ rules:
   require-jsdoc: warn
   no-unused-vars: warn
   '@typescript-eslint/ban-ts-comment': off # Enable @ts-ignore etc.
-  '@typescript-eslint/consistent-type-imports': # Enable import sort order, see bellow.
-    - off
-    - prefer: type-imports
+  '@typescript-eslint/consistent-type-imports': off
+  '@typescript-eslint/prefer-nullish-coalescing': off
+  '@typescript-eslint/consistent-type-definitions': off
   '@typescript-eslint/explicit-function-return-type': off # Fix for pinia
   '@typescript-eslint/no-confusing-void-expression':
     - error

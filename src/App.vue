@@ -7,16 +7,17 @@ import {
   watch,
   type ComputedRef,
   type Ref,
-  type WritableComputedRef,
 } from 'vue';
 import { useRoute } from 'vue-router';
 
 // import { useTheme } from 'vuetify';
 
 // Components
-// import logo from '@/assets/logo.svg';
-import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
-import DrawerComponent from '@/components/DrawerComponent.vue';
+import RightAppBar from '@/components/RightAppBar.vue';
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import SubNav from '@/components/SubNav.vue';
+import IconAxdif from '@/assets/img/logo-axdif-small.png';
+import type { TChildNav } from './types/NavbarTypes';
 
 /** Vuetify Theme */
 // const theme = useTheme();
@@ -42,18 +43,18 @@ const configStore = useConfig();
 const title = import.meta.env.VITE_APP_TITLE ?? 'Vuetify3 Application';
 
 /** drawer visibility */
-const drawer: Ref<boolean> = ref(false);
+// const drawer: Ref<boolean> = ref(false);
 
 /** loading overlay visibility */
-const loading: WritableComputedRef<boolean> = computed({
-  get: () => globalStore.loading,
-  set: v => globalStore.setLoading(v),
-});
+// const loading: WritableComputedRef<boolean> = computed({
+//   get: () => globalStore.loading,
+//   set: v => globalStore.setLoading(v),
+// });
 
 /** Appbar progressbar value */
-const progress: ComputedRef<number | null> = computed(
-  () => globalStore.progress
-);
+// const progress: ComputedRef<number | null> = computed(
+//   () => globalStore.progress
+// );
 
 /** Snackbar visibility */
 const snackbarVisibility: Ref<boolean> = ref(false);
@@ -78,32 +79,57 @@ watch(
 //   await nextTick();
 // };
 
+// Navbar
+const showSubNav: Ref<boolean> = ref(false);
+const titleNav: Ref<string> = ref('');
+const subNavOptions: Ref<TChildNav[]> = ref([]);
+const onToggleSubNav = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: TChildNav[];
+}) => {
+  subNavOptions.value = children;
+  showSubNav.value = !showSubNav.value;
+  titleNav.value = title;
+};
+
 onMounted(() => {
   document.title = title;
 });
 </script>
 
 <template>
-  <v-app :theme="isDark">
-    <v-navigation-drawer v-if="checkShowNavbar()" v-model="drawer" temporary>
-      <drawer-component />
-    </v-navigation-drawer>
+  <v-app :theme="isDark" class="tw-relative">
+    <v-app-bar
+      v-if="checkShowNavbar()"
+      density="comfortable"
+      color="background"
+      class="tw-shadow-md tw-relative"
+      floating
+      height="100"
+    >
+      <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-4">
+        <v-app-bar-title>
+          <div class="tw-flex tw-justify-start tw-items-center tw-gap-6">
+            <div
+              class="tw-bg-white tw-shadow-md tw-flex tw-items-center tw-justify-center tw-w-[50px] tw-h-[50px] tw-rounded-md tw-m-2"
+            >
+              <v-img :src="IconAxdif" height="40px" width="40px" />
+            </div>
+            <v-divider class="tw-opacity-100 tw-my-3" vertical />
+            <NavbarComponent @toggle-sub-nav="val => onToggleSubNav(val)" />
+          </div>
+        </v-app-bar-title>
 
-    <v-app-bar v-if="checkShowNavbar()">
-      <v-app-bar-nav-icon @click="drawer = !drawer" />
-      <v-app-bar-title tag="h1">{{ title }}</v-app-bar-title>
-      <v-spacer />
-      <app-bar-menu-component />
-      <v-progress-linear
-        v-show="loading"
-        :active="loading"
-        :indeterminate="progress === null"
-        :model-value="progress !== null ? progress : 0"
-        color="blue-accent-3"
-      />
+        <RightAppBar />
+      </div>
     </v-app-bar>
 
-    <v-main>
+    <SubNav v-if="showSubNav" :nav-children="subNavOptions" :title="titleNav" />
+
+    <v-main class="tw-p-4">
       <router-view v-slot="{ Component, route }">
         <component :is="Component" :key="route.name" class="tw-tracking-wide" />
       </router-view>
@@ -135,7 +161,7 @@ onMounted(() => {
 <style>
 .v-btn {
   text-transform: capitalize !important;
-  letter-spacing: 0.7px !important;
+  letter-spacing: 0.5px !important;
 }
 .v-field__outline {
   color: #888fb0;

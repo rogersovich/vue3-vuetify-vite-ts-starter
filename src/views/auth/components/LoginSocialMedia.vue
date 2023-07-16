@@ -1,24 +1,27 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
 import GoogleIcon from '@/assets/img/google.png';
 import LinkeinIcon from '@/assets/img/linkedin.png';
+import SocialButton from '@/components/SocialButton.vue';
+
+const router = useRouter();
 </script>
 <template>
   <div class="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-5">
     <div class="tw-col-span-1">
-      <div class="button-social-media">
-        <div class="tw-flex-none">
-          <v-img :src="GoogleIcon" height="22" />
-        </div>
-        <div class="label-social-media text-secondary-dark">Google</div>
-      </div>
+      <SocialButton
+        :icon="GoogleIcon"
+        title="Google"
+        @on-submit="router.push({ name: 'Dashboard' })"
+      />
     </div>
     <div class="tw-col-span-1">
-      <div class="button-social-media">
-        <div class="tw-flex-none">
-          <v-img :src="LinkeinIcon" height="22" />
-        </div>
-        <div class="label-social-media text-secondary-dark">Linked In</div>
-      </div>
+      <SocialButton
+        :icon="LinkeinIcon"
+        title="Linked In"
+        @on-submit="router.push({ name: 'Dashboard' })"
+      />
     </div>
   </div>
 </template>

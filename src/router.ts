@@ -51,6 +51,14 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: async () => await import('@/views/dashboard/DashboardPage.vue'),
+    meta: {
+      group: 'Dashboard',
+    },
+  },
 ];
 
 /** Vue Router */

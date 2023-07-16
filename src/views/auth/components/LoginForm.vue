@@ -30,6 +30,7 @@ const form = reactive({
 
 const onSubmit = handleSubmit(values => {
   console.log(values);
+  router.push({ name: 'Dashboard' });
 });
 </script>
 <template>
