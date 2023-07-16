@@ -38,11 +38,13 @@ const chartData = {
     {
       label: 'Clock In',
       backgroundColor: '#0796E5',
+      borderRadius: 6,
       data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
     },
     {
       label: 'Clock Out',
       backgroundColor: '#E53935',
+      borderRadius: 6,
       data: [11, 3, 6, 7, 56, 5, 3, 40, 13, 17, 7, 3],
     },
   ],

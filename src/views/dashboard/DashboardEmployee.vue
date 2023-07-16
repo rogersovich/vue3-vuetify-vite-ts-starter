@@ -4,6 +4,7 @@ import EmployeeAttendance from './components/EmployeeAttendance.vue';
 import EmployeeCompleteness from './components/EmployeeCompleteness.vue';
 import EmployeeTask from './components/EmployeeTask.vue';
 import EmployeeTaskCompletion from './components/EmployeeTaskCompletion.vue';
+import EmployeeRecap from './components/EmployeeRecap.vue';
 
 const displatDate = ref(0);
 </script>
@@ -50,6 +51,9 @@ const displatDate = ref(0);
       </div>
       <div class="tw-col-span-7">
         <EmployeeTaskCompletion />
+      </div>
+      <div class="tw-col-span-12">
+        <EmployeeRecap />
       </div>
     </div>
   </div>

@@ -55,7 +55,7 @@ const customThemeDark: ThemeDefinition = {
   colors: {
     background: '#12204D',
     'background-1': '#0D183D',
-    surface: '#6E7DA5',
+    surface: '#12204D',
     'primary-50': '#E1F4FE',
     'primary-100': '#B6BBD0',
     'primary-200': '#888FB0',

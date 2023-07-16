@@ -110,9 +110,9 @@ onMounted(() => {
       v-if="checkShowNavbar()"
       density="comfortable"
       color="background"
-      class="tw-shadow-md tw-relative"
-      floating
+      class="tw-shadow-md tw-sticky tw-top-0"
       height="100"
+      name="app-bar"
     >
       <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-4">
         <v-app-bar-title>
