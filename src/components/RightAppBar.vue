@@ -22,7 +22,7 @@ const isDarkMode = ref(configStore.theme);
     </template>
     <v-card
       width="400px"
-      color="background"
+      color="background-1"
       class="shadow-menu-profile tw-mt-4"
     >
       <v-card-text>

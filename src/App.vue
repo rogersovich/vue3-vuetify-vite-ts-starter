@@ -9,6 +9,7 @@ import {
   type Ref,
 } from 'vue';
 import { useRoute } from 'vue-router';
+import { onClickOutside } from '@vueuse/core';
 
 // import { useTheme } from 'vuetify';
 
@@ -80,6 +81,7 @@ watch(
 // };
 
 // Navbar
+const subNavOutside = ref(null);
 const showSubNav: Ref<boolean> = ref(false);
 const titleNav: Ref<string> = ref('');
 const subNavOptions: Ref<TChildNav[]> = ref([]);
@@ -94,6 +96,8 @@ const onToggleSubNav = ({
   showSubNav.value = !showSubNav.value;
   titleNav.value = title;
 };
+
+onClickOutside(subNavOutside, event => (showSubNav.value = false));
 
 onMounted(() => {
   document.title = title;
@@ -125,7 +129,12 @@ onMounted(() => {
       </div>
     </v-app-bar>
 
-    <SubNav v-if="showSubNav" :nav-children="subNavOptions" :title="titleNav" />
+    <SubNav
+      v-if="showSubNav"
+      ref="subNavOutside"
+      :nav-children="subNavOptions"
+      :title="titleNav"
+    />
 
     <v-main class="tw-p-0">
       <router-view v-slot="{ Component, route }">
