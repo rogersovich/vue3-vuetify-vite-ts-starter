@@ -113,9 +113,7 @@ onMounted(() => {
       <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-4">
         <v-app-bar-title>
           <div class="tw-flex tw-justify-start tw-items-center tw-gap-6">
-            <div
-              class="tw-bg-white tw-shadow-md tw-flex tw-items-center tw-justify-center tw-w-[50px] tw-h-[50px] tw-rounded-md tw-m-2"
-            >
+            <div class="container-logo-dashboard bg-background">
               <v-img :src="IconAxdif" height="40px" width="40px" />
             </div>
             <v-divider class="tw-opacity-100 tw-my-3" vertical />

@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useConfig } from '@/store';
 import Avatar from '@/assets/img/avatar.png';
 
 /** Config Store */
 const configStore = useConfig();
+
+const isDarkMode = ref(configStore.theme);
 </script>
 
 <template>
@@ -48,11 +51,11 @@ const configStore = useConfig();
             <div class="tw-font-semibold">Dark Mode</div>
             <div>
               <v-switch
+                v-model="isDarkMode"
                 density="compact"
                 hide-details
                 inset
                 size
-                color="primary-600"
                 @update:model-value="configStore.toggleTheme"
               />
             </div>

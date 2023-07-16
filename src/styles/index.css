@@ -16,11 +16,19 @@
   }
 
   .card-dashboard {
-    @apply tw-border tw-border-gray-200 tw-rounded-md tw-p-4;
+    @apply tw-border tw-rounded-md tw-p-4;
+  }
+
+  .container-logo-dashboard {
+    @apply tw-shadow-md tw-flex tw-items-center tw-justify-center tw-w-[50px] tw-h-[50px] tw-rounded-md tw-m-2;
   }
 
   .grid-12 {
     @apply tw-grid tw-grid-cols-12;
+  }
+  
+  .grid-1 {
+    @apply tw-grid tw-grid-cols-1;
   }
 
   .fcc {
