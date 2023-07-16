@@ -25,7 +25,7 @@ const chartOptions = {
       :data="chartData"
       :options="chartOptions"
       :style="{
-        height: '420px',
+        height: '440px',
       }"
     />
   </div>

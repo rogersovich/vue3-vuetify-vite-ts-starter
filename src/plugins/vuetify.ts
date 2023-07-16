@@ -14,13 +14,13 @@ import * as labsComponents from 'vuetify/labs/components';
 import { en } from 'vuetify/locale';
 
 // Misc
-import { loadFonts } from '@/plugins/webfontloader';
+// import { loadFonts } from '@/plugins/webfontloader';
 
 // Styles
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
-await loadFonts();
+// await loadFonts();
 
 const customTheme: ThemeDefinition = {
   dark: false,

@@ -3,12 +3,13 @@ import { ref } from 'vue';
 import EmployeeAttendance from './components/EmployeeAttendance.vue';
 import EmployeeCompleteness from './components/EmployeeCompleteness.vue';
 import EmployeeTask from './components/EmployeeTask.vue';
+import EmployeeTaskCompletion from './components/EmployeeTaskCompletion.vue';
 
 const displatDate = ref(0);
 </script>
 <template>
   <div class="bg-background-1 tw-min-h-full tw-p-6 font-open-sans">
-    <div class="fcb tw-mb-4">
+    <div class="fcb tw-mb-6">
       <div class="tw-text-2xl tw-font-bold">Employee Summary</div>
       <div class="fcs tw-gap-6">
         <div class="fcs tw-gap-4">
@@ -46,6 +47,9 @@ const displatDate = ref(0);
       </div>
       <div class="tw-col-span-5">
         <EmployeeTask />
+      </div>
+      <div class="tw-col-span-7">
+        <EmployeeTaskCompletion />
       </div>
     </div>
   </div>
