@@ -2,16 +2,22 @@
 import { ref } from 'vue';
 import { NAVBAR_OPTIONS } from '@/constant/navbar';
 import { useConfig } from '@/store';
+import { useRouter } from 'vue-router';
 
 const emit = defineEmits(['toggleSubNav']);
 
 /** Config Store */
 const configStore = useConfig();
 
+const router = useRouter();
+
 const navbarKey = ref('overview');
 
 const onClickNav = (key: string) => {
   const findNav = NAVBAR_OPTIONS.filter(item => item.key == key)[0];
+  if (findNav.route != null) {
+    router.push({ name: findNav.route });
+  }
   if (findNav.children != null && findNav.route == null) {
     emit('toggleSubNav', {
       title: findNav.title,

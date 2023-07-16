@@ -450,6 +450,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kurkle/color@npm:^0.3.0":
+  version: 0.3.2
+  resolution: "@kurkle/color@npm:0.3.2"
+  checksum: 79e97b31f8f6efb28c69d373f94b0c7480226fe8ec95221f518ac998e156444a496727ce47de6d728eb5c3369288e794cba82cae34253deb0d472d3bfe080e49
+  languageName: node
+  linkType: hard
+
 "@mdi/font@npm:^7.2.96":
   version: 7.2.96
   resolution: "@mdi/font@npm:7.2.96"
@@ -1825,6 +1832,15 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: fe75c9d5c76a7a98d45495b91b2172fa3b7a09e0cc9370e5c8feb1c567b85c4288e2b3fded7cfdd7359ac28d6b3844feb8b82b8686842e93d23c827c417e83fc
+  languageName: node
+  linkType: hard
+
+"chart.js@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "chart.js@npm:4.3.0"
+  dependencies:
+    "@kurkle/color": ^0.3.0
+  checksum: 157ceaa3815665163cb30ccc221a5af40834dca940faa6ec02cb95406bf3e83c15c5f36ad950a1716c9d199e87f7b9be953227c4d9d445d593536175b47bbab8
   languageName: node
   linkType: hard
 
@@ -7639,6 +7655,7 @@ __metadata:
     "@vuepic/vue-datepicker": ^5.4.0
     "@vueuse/core": ^10.2.1
     autoprefixer: ^10.4.14
+    chart.js: ^4.3.0
     core-js: ^3.31.0
     eslint: ^8.44.0
     eslint-config-standard-with-typescript: latest
@@ -7677,6 +7694,7 @@ __metadata:
     vite-svg-loader: ^4.0.0
     vitest: ^0.32.2
     vue: ^3.3.4
+    vue-chartjs: ^5.2.0
     vue-eslint-parser: ^9.3.1
     vue-router: ^4.2.2
     vue-tsc: ^1.8.3
@@ -7878,6 +7896,16 @@ __metadata:
   version: 3.0.7
   resolution: "vscode-uri@npm:3.0.7"
   checksum: c899a0334f9f6ba53021328e083f6307978c09b94407d7e5fe86fcd8fcb8f1da0cb344123a335e55769055007a46d51aff83f9ee1dfc0296ee54b78f34ef0e4f
+  languageName: node
+  linkType: hard
+
+"vue-chartjs@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "vue-chartjs@npm:5.2.0"
+  peerDependencies:
+    chart.js: ^4.1.1
+    vue: ^3.0.0-0 || ^2.7.0
+  checksum: e707bcbe442d85a3ec23825620f6b1ba4f43eba67c68e1bd845ef5536b754c4447dc9a249f4ec92f8a29a479981b07382bd32b6449686676dd22d5e18f366ffa
   languageName: node
   linkType: hard
 

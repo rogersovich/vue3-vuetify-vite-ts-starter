@@ -26,7 +26,7 @@ const customTheme: ThemeDefinition = {
   dark: false,
   colors: {
     background: '#FFFFFF',
-    'background-1': '#FFFFFF',
+    'background-1': '#F9F9F9',
     surface: '#FFFFFF',
     'primary-50': '#E1F4FE',
     'primary-100': '#B6BBD0',

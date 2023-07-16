@@ -7,11 +7,11 @@ import OvertimeIcon from '@/assets/img/navs/nav-overtime.png';
 import TripIcon from '@/assets/img/navs/nav-trip.png';
 
 export const NAVBAR_OPTIONS: TNavbarResponse[] = [
-  { key: 'overview', title: 'Overview', route: null, children: null },
+  { key: 'overview', title: 'Overview', route: 'Dashboard', children: null },
   {
     key: 'employee-stats',
     title: 'Employee Stats',
-    route: null,
+    route: 'DashboardEmployee',
     children: null,
   },
   {

@@ -1,7 +1,7 @@
 export type TNavbarResponse = {
   key: string;
   title: string;
-  route: null;
+  route: string | null;
   children: TChildNav[] | null;
 };
 

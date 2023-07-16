@@ -93,8 +93,8 @@ const onToggleSubNav = ({
   children: TChildNav[];
 }) => {
   subNavOptions.value = children;
-  showSubNav.value = !showSubNav.value;
   titleNav.value = title;
+  showSubNav.value = !showSubNav.value;
 };
 
 onClickOutside(subNavOutside, event => (showSubNav.value = false));
