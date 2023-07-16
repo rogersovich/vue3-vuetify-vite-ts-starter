@@ -141,7 +141,7 @@ onMounted(() => {
   color: #888fb0;
 }
 
-.v-text-field ::placeholder {
+/* .v-text-field ::placeholder {
   color: #888fb0 !important;
 }
 .v-text-field input {
@@ -159,5 +159,5 @@ onMounted(() => {
 
 .mdi-checkbox-marked::before {
   color: #0796e5;
-}
+} */
 </style>

@@ -15,7 +15,7 @@ const isRegister = ref(false);
 
 <template>
   <div v-if="mobile" class="bg-primary-600 tw-min-h-screen">
-    <v-app-bar color="#fff" density="compact" class="tw-py-3" flat>
+    <v-app-bar color="background" density="compact" class="tw-py-3" flat>
       <v-app-bar-title>
         <div><LogoAxdif width="120" /></div>
       </v-app-bar-title>
@@ -28,7 +28,7 @@ const isRegister = ref(false);
         A few clicks away from being a part of Axdif
       </div>
       <div
-        class="tw-flex tw-justify-start tw-items-center tw-py-6 tw-px-6 md:tw-px-20 tw-w-full tw-bg-white tw-rounded-md"
+        class="tw-flex tw-justify-start tw-items-center tw-py-6 tw-px-6 md:tw-px-20 tw-w-full bg-background tw-rounded-md"
       >
         <div class="tw-w-full">
           <div v-if="!mobile"><LogoAxdif width="150" /></div>
