@@ -15,6 +15,10 @@
     @apply tw-underline tw-text-sm;
   }
 
+  .card-dashboard {
+    @apply tw-border tw-border-gray-200 tw-rounded-md tw-p-4;
+  }
+
   .grid-12 {
     @apply tw-grid tw-grid-cols-12;
   }
@@ -26,9 +30,11 @@
   .fce {
     @apply tw-flex tw-items-center tw-justify-end;
   }
+
   .fcs {
     @apply tw-flex tw-items-center tw-justify-start;
   }
+
   .fcb {
     @apply tw-flex tw-items-center tw-justify-between;
   }

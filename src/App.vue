@@ -129,7 +129,7 @@ onMounted(() => {
 
     <SubNav v-if="showSubNav" :nav-children="subNavOptions" :title="titleNav" />
 
-    <v-main class="tw-p-4">
+    <v-main class="tw-p-0">
       <router-view v-slot="{ Component, route }">
         <component :is="Component" :key="route.name" class="tw-tracking-wide" />
       </router-view>

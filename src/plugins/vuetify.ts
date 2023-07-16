@@ -35,7 +35,7 @@ const customTheme: ThemeDefinition = {
     'primary-600': '#0796E5',
     'primary-700': '#0984D1',
     'primary-900': '#08539A',
-    secondary: '#03DAC6',
+    secondary: '#212121',
     'secondary-blue-dark': '#000037',
     'secondary-dark': '#12204D',
     'secondary-blue': '#559BD9',
