@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
+import { useDisplay } from 'vuetify';
 import TaskCompletionChart from '@/components/TaskCompletionChart.vue';
 import Increase from '@/assets/svg/increase.svg';
 import Decrease from '@/assets/svg/decrease.svg';
@@ -27,32 +28,42 @@ const attendanceOptions = [
     title: 'Total Task Created',
     total: '1600',
     subtitle: 'Last Year : 1800 Task',
-    percentage: null,
-  },
-  {
-    title: 'Most Completed Tasks At',
-    total: 'UI/UX Design',
-    subtitle: '240 Task',
     percentage: {
       type: 'loss',
       value: '20%',
     },
   },
+  {
+    title: 'Most Completed Tasks At',
+    total: 'UI/UX Design',
+    subtitle: '240 Task',
+    percentage: null,
+  },
 ];
+
+const { smAndDown } = useDisplay();
 
 const formatClass = ({ index }: { index: number }) => {
   let borderWidth = '';
-  if (index == 0) {
-    borderWidth = 'tw-border-r-0';
-  } else if (index - 1) {
-    borderWidth = 'tw-border-y tw-border-l-0';
+  if (!smAndDown.value) {
+    if (index == 0) {
+      borderWidth = 'tw-border-r-0';
+    } else if (index - 1) {
+      borderWidth = 'tw-border-y tw-border-l-0';
+    }
+  } else {
+    borderWidth = 'tw-border';
   }
 
   let borderRounded = '';
-  if (index == 0) {
-    borderRounded = 'tw-rounded-l-md';
-  } else if (attendanceOptions.length - 1 == index) {
-    borderRounded = 'tw-rounded-r-md';
+  if (!smAndDown.value) {
+    if (index == 0) {
+      borderRounded = 'tw-rounded-l-md';
+    } else if (attendanceOptions.length - 1 == index) {
+      borderRounded = 'tw-rounded-r-md';
+    }
+  } else {
+    borderRounded = 'tw-rounded-md';
   }
 
   const borderColor = configStore.theme
@@ -70,16 +81,19 @@ const formatClass = ({ index }: { index: number }) => {
     <div class="tw-text-xl tw-font-bold text-secondary">
       Task Completion in All Project
     </div>
-    <div class="fcc tw-h-[350px]">
+    <div>
       <TaskCompletionChart />
     </div>
-    <div class="grid-12 tw-mt-5 tw-px-6">
+    <div class="grid-12 tw-mt-5 md:tw-px-6 tw-gap-3 md:tw-gap-0">
       <div
         v-for="(item, i) in attendanceOptions"
         :key="i"
-        class="tw-col-span-3"
+        class="tw-col-span-6 md:tw-col-span-3"
       >
-        <div class="tw-border tw-h-[110px]" :class="formatClass({ index: i })">
+        <div
+          class="tw-border tw-h-[150px] md:tw-h-[110px] fcc"
+          :class="formatClass({ index: i })"
+        >
           <div class="fcs">
             <v-card-text>
               <div>
@@ -95,7 +109,7 @@ const formatClass = ({ index }: { index: number }) => {
                 </div>
                 <div class="fcc tw-gap-2 tw-mt-2 tw-mb-1">
                   <div
-                    class="text-secondary tw-text-center tw-text-base tw-font-bold"
+                    class="text-secondary tw-text-center tw-text-sm md:tw-text-base tw-font-bold"
                   >
                     {{ item.total }}
                   </div>

@@ -19,6 +19,7 @@ import NavbarComponent from '@/components/NavbarComponent.vue';
 import SubNav from '@/components/SubNav.vue';
 import IconAxdif from '@/assets/img/logo-axdif-small.png';
 import type { TChildNav } from './types/NavbarTypes';
+import { useDisplay } from 'vuetify';
 
 /** Vuetify Theme */
 // const theme = useTheme();
@@ -39,6 +40,8 @@ const globalStore = useGlobal();
 
 /** Config Store */
 const configStore = useConfig();
+
+const { mobile } = useDisplay();
 
 /** Title */
 const title = import.meta.env.VITE_APP_TITLE ?? 'Vuetify3 Application';
@@ -120,7 +123,7 @@ onMounted(() => {
             <div class="container-logo-dashboard bg-background">
               <v-img :src="IconAxdif" height="40px" width="40px" />
             </div>
-            <v-divider class="tw-opacity-100 tw-my-3" vertical />
+            <v-divider v-if="!mobile" class="tw-opacity-100 tw-my-3" vertical />
             <NavbarComponent @toggle-sub-nav="val => onToggleSubNav(val)" />
           </div>
         </v-app-bar-title>

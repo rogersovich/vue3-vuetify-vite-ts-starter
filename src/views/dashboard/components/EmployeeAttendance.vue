@@ -34,14 +34,14 @@ const attendanceOptions = [
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div class="tw-text-xl tw-font-bold text-secondary">Attendance Summary</div>
-    <div class="fcc tw-h-[430px]">
+    <div>
       <AttendanceSummaryChart />
     </div>
     <div class="grid-12 tw-gap-4 tw-mt-5">
       <div
         v-for="(item, i) in attendanceOptions"
         :key="i"
-        class="tw-col-span-3"
+        class="tw-col-span-6 md:tw-col-span-3"
       >
         <v-card
           color="background"
@@ -55,10 +55,10 @@ const attendanceOptions = [
             <div class="tw-w-1.5 tw-h-[5.5em]" :class="item.color" />
             <v-card-text>
               <div>
-                <div class="text-primary-200 tw-text-sm">
+                <div class="text-primary-200 tw-text-xs md:tw-text-sm">
                   {{ item.title }}
                 </div>
-                <div class="text-secondary tw-text-lg tw-font-bold tw-mt-1">
+                <div class="text-secondary md:tw-text-lg tw-font-bold tw-mt-1">
                   {{ item.total }}
                 </div>
               </div>

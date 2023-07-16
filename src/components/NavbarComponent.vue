@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { NAVBAR_OPTIONS } from '@/constant/navbar';
 import { useConfig } from '@/store';
 import { useRouter } from 'vue-router';
+import { useDisplay } from 'vuetify';
 
 const emit = defineEmits(['toggleSubNav']);
 
@@ -12,6 +13,8 @@ const configStore = useConfig();
 const router = useRouter();
 
 const navbarKey = ref('overview');
+
+const { mobile } = useDisplay();
 
 const onClickNav = (key: string) => {
   const findNav = NAVBAR_OPTIONS.filter(item => item.key == key)[0];
@@ -51,7 +54,7 @@ const formatClass = (nav: string) => {
 };
 </script>
 <template>
-  <div class="tw-flex tw-items-center tw-gap-3 font-open-sans">
+  <div v-if="!mobile" class="tw-flex tw-items-center tw-gap-3 font-open-sans">
     <div v-for="(nav, i) in NAVBAR_OPTIONS" :key="i" class="tw-col-span-2">
       <v-btn
         block
@@ -70,6 +73,30 @@ const formatClass = (nav: string) => {
         </div>
       </v-btn>
     </div>
+  </div>
+  <div v-else class="tw-w-full tw-text-center tw-mr-4">
+    <v-menu>
+      <template #activator="{ props }">
+        <v-btn
+          color="secondary"
+          size="x-large"
+          variant="text"
+          append-icon="mdi-chevron-down"
+          v-bind="props"
+        >
+          <div class="tw-font-bold">Overview</div>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(item, index) in NAVBAR_OPTIONS"
+          :key="index"
+          :value="index"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </div>
 </template>
 

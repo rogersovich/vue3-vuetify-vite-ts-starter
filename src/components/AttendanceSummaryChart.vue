@@ -61,7 +61,7 @@ const chartOptions = {
       :options="chartOptions"
       :data="chartData"
       :style="{
-        height: '400px',
+        height: '430px',
         width: '100%',
       }"
     />
