@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
 import { VDataTable } from 'vuetify/labs/VDataTable';
+import { TABLE_DATA } from '@/constant/dashboard';
 
 /** Config Store */
 const configStore = useConfig();
@@ -18,80 +19,18 @@ const headers = [
   { title: 'End Date', key: 'endDate' },
   { title: 'Duration', key: 'duration' },
   { title: 'Day', key: 'day' },
+  { title: 'Leave Category', key: 'leave_category' },
+  { title: 'Status', key: 'status' },
+  { title: 'Reason', key: 'reason' },
 ];
 
-const items = [
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 02 Jan 2023',
-    leaveType: 'Annual Leave',
-    startDate: 'Tue, 03 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '1 Day(s)',
-    day: 'Full Day',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 12 Jan 2023',
-    leaveType: 'Sick Leave',
-    startDate: 'Tue, 11 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '2 Day(s)',
-    day: 'Full Day',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 22 Jan 2023',
-    leaveType: 'Annual Leave',
-    startDate: 'Tue, 21 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '3 Day(s)',
-    day: 'Half Day - Second Half',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 14 Jan 2023',
-    leaveType: 'Sick Leave',
-    startDate: 'Tue, 30 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '0.5 Day(s)',
-    day: 'Full Day',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 20 Jan 2023',
-    leaveType: 'Annual Leave',
-    startDate: 'Tue, 09 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '1 Day(s)',
-    day: 'Half Day - Second Half',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 12 Jan 2023',
-    leaveType: 'Sick Leave',
-    startDate: 'Tue, 01 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '0.5 Day(s)',
-    day: 'Full Day',
-  },
-  {
-    leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
-    requestOn: 'Mon, 08 Jan 2023',
-    leaveType: 'Annual Leave',
-    startDate: 'Tue, 14 Jan 2023',
-    endDate: 'Tue, 03 Jan 2023',
-    duration: '2 Day(s)',
-    day: 'Half Day - First Half',
-  },
-];
 </script>
 <template>
   <div>
     <v-data-table
       v-model="sortBy"
       :headers="headers"
-      :items="items"
+      :items="TABLE_DATA"
       :show-current-page="false"
       :hide-default-footer="true"
       class="elevation-0 tw-border tw-rounded"

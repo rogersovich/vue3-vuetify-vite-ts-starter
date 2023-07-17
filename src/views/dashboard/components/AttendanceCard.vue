@@ -22,7 +22,7 @@ const attendanceToday = [
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div>
-      <div class="tw-text-xl tw-font-bold text-secondary">
+      <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">
         Today's Attendance
       </div>
       <DividerDashboard class="tw-my-2" />

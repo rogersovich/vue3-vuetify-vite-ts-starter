@@ -41,11 +41,11 @@ const attendanceOptions = [
   },
 ];
 
-const { smAndDown } = useDisplay();
+const { mobile } = useDisplay();
 
 const formatClass = ({ index }: { index: number }) => {
   let borderWidth = '';
-  if (!smAndDown.value) {
+  if (!mobile.value) {
     if (index == 0) {
       borderWidth = 'tw-border-r-0';
     } else if (index - 1) {
@@ -56,7 +56,7 @@ const formatClass = ({ index }: { index: number }) => {
   }
 
   let borderRounded = '';
-  if (!smAndDown.value) {
+  if (!mobile.value) {
     if (index == 0) {
       borderRounded = 'tw-rounded-l-md';
     } else if (attendanceOptions.length - 1 == index) {
@@ -78,7 +78,7 @@ const formatClass = ({ index }: { index: number }) => {
     class="card-dashboard bg-background"
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
-    <div class="tw-text-xl tw-font-bold text-secondary">
+    <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">
       Task Completion in All Project
     </div>
     <div>
@@ -91,18 +91,18 @@ const formatClass = ({ index }: { index: number }) => {
         class="tw-col-span-6 md:tw-col-span-3"
       >
         <div
-          class="tw-border tw-h-[150px] md:tw-h-[110px] fcc"
+          class="tw-border tw-h-[110px] md:tw-h-[110px] fcc"
           :class="formatClass({ index: i })"
         >
           <div class="fcs">
-            <v-card-text>
+            <v-card-text class="tw-px-0 md:tw-px-4">
               <div>
                 <div class="fcc tw-gap-2">
-                  <div class="text-primary-200 tw-text-[13px] tw-text-center">
+                  <div class="text-primary-200 tw-text-[11px] md:tw-text-[11px] tw-text-center">
                     {{ item.title }}
                   </div>
                   <v-icon
-                    size="14"
+                    size="12"
                     color="primary-500"
                     icon="mdi-information-outline"
                   />
@@ -129,7 +129,7 @@ const formatClass = ({ index }: { index: number }) => {
                     <Decrease v-else class="tw-ml-1" />
                   </v-chip>
                 </div>
-                <div class="text-secondary tw-text-center">
+                <div class="text-secondary tw-text-center tw-text-xs md:tw-text-sm">
                   {{ item.subtitle }}
                 </div>
               </div>

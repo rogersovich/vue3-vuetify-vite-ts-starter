@@ -33,7 +33,7 @@ const attendanceOptions = [
     class="card-dashboard bg-background"
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
-    <div class="tw-text-xl tw-font-bold text-secondary">Attendance Summary</div>
+    <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">Attendance Summary</div>
     <div>
       <AttendanceSummaryChart />
     </div>
