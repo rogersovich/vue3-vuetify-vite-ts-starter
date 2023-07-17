@@ -18,7 +18,7 @@ const attendanceToday = [
 </script>
 <template>
   <div
-    class="card-dashboard bg-background"
+    class="card-dashboard bg-background tw-col-span-1"
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div>
@@ -26,7 +26,7 @@ const attendanceToday = [
         Today's Attendance
       </div>
       <DividerDashboard class="tw-my-2" />
-      <div class="grid-12 tw-gap-4">
+      <div class="grid-12 tw-gap-2 md:tw-gap-4">
         <div
           v-for="(attendance, i) in attendanceToday"
           :key="i"
@@ -46,10 +46,10 @@ const attendanceToday = [
             />
             <v-card-text>
               <div>
-                <div class="text-primary-200 tw-text-sm">
+                <div class="text-primary-200 tw-text-xs md:tw-text-sm">
                   {{ attendance.type }}
                 </div>
-                <div class="text-secondary tw-text-xl tw-font-bold tw-mt-1">
+                <div class="text-secondary tw-text-base md:tw-text-xl tw-font-bold tw-mt-1">
                   {{ attendance.time }}
                 </div>
               </div>

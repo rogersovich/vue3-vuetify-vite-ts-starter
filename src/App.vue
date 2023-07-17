@@ -114,14 +114,14 @@ onMounted(() => {
       density="comfortable"
       color="background"
       class="tw-shadow-md tw-sticky tw-top-0"
-      height="100"
+      :height="mobile ? 80 : 100"
       name="app-bar"
     >
-      <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-4">
+      <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-2 md:tw-px-4">
         <v-app-bar-title>
-          <div class="tw-flex tw-justify-start tw-items-center tw-gap-6">
+          <div class="tw-flex tw-justify-start tw-items-center tw-gap-4 md:tw-gap-6">
             <div class="container-logo-dashboard bg-background">
-              <v-img :src="IconAxdif" height="40px" width="40px" />
+              <v-img :src="IconAxdif" :height="40" :width="40" />
             </div>
             <v-divider v-if="!mobile" class="tw-opacity-100 tw-my-3" vertical />
             <NavbarComponent @toggle-sub-nav="val => onToggleSubNav(val)" />

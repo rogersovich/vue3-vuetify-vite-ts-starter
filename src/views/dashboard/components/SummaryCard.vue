@@ -25,9 +25,9 @@ const selectDate = () => {
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div class="fcb text-secondary">
-      <div class="tw-text-xl tw-font-bold">Summary</div>
+      <div class="tw-text-lg md:tw-text-xl tw-font-bold">Summary</div>
       <div class="fcs tw-gap-4">
-        <div class="tw-text-sm">Periode</div>
+        <div class="tw-text-sm tw-hidden md:tw-block">Periode</div>
         <VueDatePicker
           ref="dp"
           v-model="date"
@@ -58,8 +58,8 @@ const selectDate = () => {
       </div>
     </div>
     <DividerDashboard class="tw-my-5" />
-    <div class="grid-12 tw-gap-4">
-      <div v-for="(item, i) in SUMMARY" :key="i" class="tw-col-span-4">
+    <div class="grid-12 tw-gap-2 md:tw-gap-4">
+      <div v-for="(item, i) in SUMMARY" :key="i" class="tw-col-span-6 md:tw-col-span-4">
         <v-card
           color="background"
           flat
@@ -69,10 +69,10 @@ const selectDate = () => {
             configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-100'
           "
         >
-          <div class="tw-text-[#808D93] tw-text-sm">
+          <div class="tw-text-[#808D93] tw-text-xs md:tw-text-sm">
             {{ item.title }}
           </div>
-          <div class="tw-font-bold tw-text-lg text-secondary tw-mt-2">
+          <div class="tw-font-bold tw-text-sm md:tw-text-lg text-secondary tw-mt-2">
             {{ item.subtitle }}
           </div>
         </v-card>

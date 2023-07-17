@@ -20,7 +20,7 @@
   }
 
   .container-logo-dashboard {
-    @apply tw-shadow-md tw-flex tw-items-center tw-justify-center tw-w-[50px] tw-h-[50px] tw-rounded-md tw-m-2;
+    @apply tw-shadow-md tw-flex tw-items-center tw-justify-center tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-rounded-md tw-m-2;
   }
 
   .grid-12 {
@@ -82,7 +82,7 @@
 @font-face {
   font-family: 'Proxima Nova';
   src: local('Proxima Nova Bold'),
-    url('../assets/fonts/proximanova-bold.otf') format('opentype');
+    url('../assets/fonts/ProximaNova/proximanova-bold.otf') format('opentype');
   font-weight: 700;
   unicode-range: U+20-21, U+3F, U+41-5A, U+61-7A;
 }

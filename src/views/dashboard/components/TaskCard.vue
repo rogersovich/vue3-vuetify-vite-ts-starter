@@ -2,9 +2,12 @@
 import { useConfig } from '@/store';
 import DividerDashboard from '@/components/DividerDashboard.vue';
 import { TASK_DUE_SOON } from '@/constant/dashboard';
+import { useDisplay } from 'vuetify';
 
 /** Config Store */
 const configStore = useConfig();
+
+const { mobile } = useDisplay();
 
 const colorChip = (level: string) => {
   let color = 'success';
@@ -25,7 +28,7 @@ const colorChip = (level: string) => {
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div class="fcb text-secondary">
-      <div class="tw-text-xl tw-font-bold">Task Due Soon</div>
+      <div class="tw-text-lg md:tw-text-xl tw-font-bold">Task Due Soon</div>
       <div>
         <v-btn
           variant="text"
@@ -41,8 +44,8 @@ const colorChip = (level: string) => {
       </div>
     </div>
     <DividerDashboard class="tw-my-5" />
-    <div class="grid-1 tw-gap-4">
-      <div v-for="(item, i) in TASK_DUE_SOON" :key="i" class="tw-col-span-4">
+    <div class="grid-12 tw-gap-4">
+      <div v-for="(item, i) in TASK_DUE_SOON" :key="i" class="tw-col-span-12">
         <v-card
           color="background"
           flat
@@ -53,50 +56,50 @@ const colorChip = (level: string) => {
           "
         >
           <div class="grid-12 tw-items-center">
-            <div class="tw-col-span-7">
-              <div class="tw-text-[#808D93] tw-text-sm">
+            <div class="tw-col-span-12 md:tw-col-span-7">
+              <div class="tw-text-[#808D93] tw-text-xs md:tw-text-sm">
                 {{ item.title }}
               </div>
-              <div class="tw-font-bold tw-text-lg text-secondary tw-mt-2">
+              <div class="tw-font-bold tw-text-base md:tw-text-lg text-secondary tw-mt-1 md:tw-mt-2">
                 {{ item.subtitle }}
               </div>
             </div>
-            <div class="tw-col-span-5">
+            <div class="tw-col-span-12 md:tw-col-span-5">
               <div class="grid-12 tw-items-center tw-gap-3">
                 <div class="tw-col-span-4 fcb">
-                  <div class="fcs tw-gap-2.5">
-                    <v-icon icon="mdi-attachment" color="primary-200" />
-                    <div class="tw-text-sm text-primary-200">
+                  <div class="fcs tw-gap-1 md:tw-gap-2.5">
+                    <v-icon icon="mdi-attachment" color="primary-200" :size="mobile ? 16 : 20" />
+                    <div class="tw-text-xs md:tw-text-sm text-primary-200">
                       {{ item.total_task }}
                     </div>
                   </div>
-                  <div class="fcs tw-gap-2.5">
+                  <div class="fcs tw-gap-1 md:tw-gap-2.5">
                     <v-icon
-                      size="16"
+                      :size="mobile ? 12 : 15"
                       icon="mdi-comment-outline"
                       color="primary-200"
                     />
-                    <div class="tw-text-sm text-primary-200">
+                    <div class="tw-text-xs md:tw-text-sm text-primary-200">
                       {{ item.total_comment }}
                     </div>
                   </div>
                 </div>
-                <div class="tw-col-span-1 fce">
+                <div class="tw-col-span-1 fce" v-if="!mobile">
                   <v-divider vertical class="tw-opacity-90 tw-h-5" />
                 </div>
-                <div class="tw-col-span-3 fcc">
-                  <v-chip size="small" :color="colorChip(item.level)">
+                <div class="tw-col-span-4 md:tw-col-span-3 fcc">
+                  <v-chip :size="mobile ? 'x-small' : 'small'" :color="colorChip(item.level)">
                     {{ item.level }}
                   </v-chip>
                 </div>
                 <div class="tw-col-span-4">
                   <div class="fcs tw-gap-2">
                     <v-icon
-                      size="16"
+                      :size="mobile ? 12 : 15"
                       icon="mdi-calendar-blank-outline"
                       color="primary-200"
                     />
-                    <div class="tw-text-xs text-primary-200">
+                    <div class="tw-text-[10px] md:tw-text-xs text-primary-200">
                       {{ item.date }}
                     </div>
                   </div>
