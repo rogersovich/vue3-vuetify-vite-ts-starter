@@ -7698,6 +7698,7 @@ __metadata:
     vue-eslint-parser: ^9.3.1
     vue-router: ^4.2.2
     vue-tsc: ^1.8.3
+    vue3-easy-data-table: ^1.5.47
     vuetify: ^3.3.6
     webfontloader: ^1.6.28
     yup: ^1.2.0
@@ -8002,7 +8003,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.3.4":
+"vue3-easy-data-table@npm:^1.5.47":
+  version: 1.5.47
+  resolution: "vue3-easy-data-table@npm:1.5.47"
+  dependencies:
+    vue: ^3.2.45
+  checksum: 4d3cd53f51ba05dd6f8a357ea6a0be91dc65bf457b43fa062f2c287796d8436eb306387aab211e7ef5d87d88acc44831559e48aa46cf41768f3d3bc150475672
+  languageName: node
+  linkType: hard
+
+"vue@npm:^3.2.45, vue@npm:^3.3.4":
   version: 3.3.4
   resolution: "vue@npm:3.3.4"
   dependencies:

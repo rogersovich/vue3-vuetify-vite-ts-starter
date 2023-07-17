@@ -52,6 +52,7 @@
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.2",
+    "vue3-easy-data-table": "^1.5.47",
     "vuetify": "^3.3.6",
     "webfontloader": "^1.6.28",
     "yup": "^1.2.0"
