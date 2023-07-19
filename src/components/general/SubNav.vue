@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
-import type { TChildNav } from '@/types/NavbarTypes';
+import type { TChildNav } from '@/types/navbar';
 import { useDisplay } from 'vuetify';
 
 const props = defineProps({

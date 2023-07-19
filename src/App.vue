@@ -18,7 +18,7 @@ import RightAppBar from '@/components/general/RightAppBar.vue';
 import NavbarComponent from '@/components/general/NavbarComponent.vue';
 import SubNav from '@/components/general/SubNav.vue';
 import IconAxdif from '@/assets/img/logo-axdif-small.png';
-import type { TChildNav } from './types/NavbarTypes';
+import type { TChildNav } from './types/navbar';
 import { useDisplay } from 'vuetify';
 
 /** Vuetify Theme */

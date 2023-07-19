@@ -1,5 +1,7 @@
 import type { Item } from 'vue3-easy-data-table';
 
+import type { TaskType } from '@/types/task';
+
 export const SUMMARY = [
   {
     title: 'Working Day(s)',
@@ -27,30 +29,42 @@ export const SUMMARY = [
   },
 ];
 
-export const TASK_DUE_SOON = [
+export const TASK_DUE_SOON: TaskType[] = [
   {
+    status: 'unscheduled',
+    progress_status: 'on-progress',
+    type: 'UI/UX Design',
     title: '[Wms][Web][Task] Create Goals Design',
     subtitle: `UI/UX Designer`,
     total_task: 44,
     total_comment: 1,
     level: 'Medium',
-    date: '06 Aug 2021',
+    date_scheduled: '06 Aug 2021',
+    date_created: '10 Mar 21 at 13:30',
   },
   {
+    status: 'unscheduled',
+    progress_status: 'on-progress',
+    type: 'Frontend',
     title: '[Wms][Web][Task] Integeration API',
     subtitle: `Front End Dev`,
     total_task: 102,
     total_comment: 5,
     level: 'Hard',
-    date: '22 Jan 2022',
+    date_scheduled: '22 Jan 2022',
+    date_created: '10 Mar 21 at 13:30',
   },
   {
+    status: 'unscheduled',
+    progress_status: 'on-progress',
+    type: 'Backend',
     title: '[Wms][Web][Task] Export Database',
     subtitle: `Backend End Dev`,
     total_task: 17,
     total_comment: 3,
     level: 'Easy',
-    date: '11 Des 2023',
+    date_scheduled: '11 Des 2023',
+    date_created: '10 Mar 21 at 13:30',
   },
 ];
 

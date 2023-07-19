@@ -1,4 +1,4 @@
-import type { TNavbarResponse } from '@/types/NavbarTypes';
+import type { TNavbarResponse } from '@/types/navbar';
 import AttendanceIcon from '@/assets/img/navs/nav-attendance.png';
 import ApprovalIcon from '@/assets/img/navs/nav-approval.png';
 import CalendarIcon from '@/assets/img/navs/nav-calendar.png';

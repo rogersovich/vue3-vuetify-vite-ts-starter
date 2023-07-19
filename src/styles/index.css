@@ -31,6 +31,10 @@
     @apply tw-grid tw-grid-cols-1;
   }
 
+  .fc {
+    @apply tw-flex tw-items-center;
+  }
+
   .fcc {
     @apply tw-flex tw-items-center tw-justify-center;
   }
