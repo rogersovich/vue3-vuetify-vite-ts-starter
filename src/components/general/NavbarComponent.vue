@@ -19,6 +19,7 @@ const { mobile } = useDisplay();
 const subNav = ref('overview');
 
 const onClickNav = (key: string) => {
+  navbarKey.value = key;
   const findNav = NAVBAR_OPTIONS.filter(item => item.key == key)[0];
   if (findNav.route != null) {
     router.push({ name: findNav.route });
@@ -83,7 +84,7 @@ const formatClass = (nav: string) => {
       >
         <div
           class="tw-font-bold"
-          :class="`${navbarKey == nav.key ? 'text-secondary-blue-dark' : ''}`"
+          :class="`${navbarKey == nav.key ? 'text-primary-500' : ''}`"
         >
           {{ nav.title }}
         </div>
