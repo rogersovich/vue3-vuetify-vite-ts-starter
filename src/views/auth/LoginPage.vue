@@ -2,7 +2,7 @@
 import LogoAxdif from '@/assets/svg/logo-axdif.svg';
 import LoginSocialMedia from './components/LoginSocialMedia.vue';
 import LoginForm from './components/LoginForm.vue';
-import CustomDivider from '@/components/CustomDivider.vue';
+import CustomDivider from '@/components/general/CustomDivider.vue';
 // import { useRouter } from 'vue-router';
 // const router = useRouter();
 </script>

@@ -22,9 +22,9 @@ const isRegister = ref(false);
     </v-app-bar>
     <div
       :class="bgClipmask"
-      class="tw-h-full tw-w-full tw-bg-center tw-bg-cover tw-p-4"
+      class="tw-h-full tw-w-full tw-bg-center tw-bg-cover tw-px-4 tw-pt-20 tw-pb-4"
     >
-      <div class="tw-text-center tw-font-bold tw-text-3xl tw-py-6">
+      <div class="tw-text-center tw-font-bold tw-text-3xl tw-py-4">
         A few clicks away from being a part of Axdif
       </div>
       <div

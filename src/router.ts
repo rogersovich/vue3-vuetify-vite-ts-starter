@@ -20,7 +20,7 @@ import AuthLayout from '@/layouts/AuthLayout.vue';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/auth/login',
+    redirect: '/auth/register',
   },
   {
     path: '/auth',

@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router';
 
 import GoogleIcon from '@/assets/img/google.png';
 import LinkeinIcon from '@/assets/img/linkedin.png';
-import SocialButton from '@/components/SocialButton.vue';
+import SocialButton from '@/components/general/SocialButton.vue';
 
 const router = useRouter();
 </script>

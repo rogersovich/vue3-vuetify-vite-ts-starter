@@ -103,7 +103,7 @@ const { mobile } = useDisplay();
             type="submit"
             class="tw-px-6"
             size="large"
-            @click="router.push('Login')"
+            @click="router.push({ name: 'Login' })"
           >
             Login to Axdif
           </v-btn>
