@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
 import { useDisplay } from 'vuetify';
-import TaskCompletionChart from '@/components/TaskCompletionChart.vue';
+import TaskCompletionChart from '@/components/charts/TaskCompletionChart.vue';
 import Increase from '@/assets/svg/increase.svg';
 import Decrease from '@/assets/svg/decrease.svg';
 
@@ -98,7 +98,9 @@ const formatClass = ({ index }: { index: number }) => {
             <v-card-text class="tw-px-0 md:tw-px-4">
               <div>
                 <div class="fcc tw-gap-2">
-                  <div class="text-primary-200 tw-text-[11px] md:tw-text-[11px] tw-text-center">
+                  <div
+                    class="text-primary-200 tw-text-[11px] md:tw-text-[11px] tw-text-center"
+                  >
                     {{ item.title }}
                   </div>
                   <v-icon
@@ -129,7 +131,9 @@ const formatClass = ({ index }: { index: number }) => {
                     <Decrease v-else class="tw-ml-1" />
                   </v-chip>
                 </div>
-                <div class="text-secondary tw-text-center tw-text-xs md:tw-text-sm">
+                <div
+                  class="text-secondary tw-text-center tw-text-xs md:tw-text-sm"
+                >
                   {{ item.subtitle }}
                 </div>
               </div>

@@ -1,82 +1,67 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
-import { VDataTable } from 'vuetify/labs/VDataTable';
 import { TABLE_DATA } from '@/constant/dashboard';
-import type { Header, Item } from "vue3-easy-data-table";
+import { getStatusColor } from '@/helpers/getFormatColor';
+import { useDisplay } from 'vuetify';
+import type { Header } from 'vue3-easy-data-table';
 
 /** Config Store */
 const configStore = useConfig();
 
+const { mobile } = useDisplay();
 
-// const sortBy = [{ key: 'requestOn', order: 'asc' }];
-// const headers = [
-//   {
-//     title: 'Leave Code',
-//     key: 'leaveCode',
-//     sortable: false,
-//   },
-//   { title: 'Requested On', key: 'requestOn' },
-//   { title: 'Leave Type', key: 'leaveType' },
-//   { title: 'Start Date', key: 'startDate' },
-//   { title: 'End Date', key: 'endDate' },
-//   { title: 'Duration', key: 'duration' },
-//   { title: 'Day', key: 'day' },
-//   { title: 'Leave Category', key: 'leave_category' },
-//   { title: 'Status', key: 'status' },
-//   { title: 'Reason', key: 'reason' },
-// ];
-
-const headers: Header[] = [
-  { text: "PLAYER", value: "player", fixed: true, width: 200 }, // set fixed to true
-  { text: "TEAM", value: "team", width: 100 }, // set fixed to true
-  { text: "NUMBER", value: "number", width: 200 },
-  { text: "POSITION", value: "position", width: 200 },
-  { text: "HEIGHT", value: "height", width: 200 },
-  { text: "WEIGHT (lbs)", value: "weight", sortable: true, width: 200 },
-  { text: "LAST ATTENDED", value: "lastAttended", width: 200 },
-  { text: "COUNTRY", value: "country", width: 200 },
+const TABLE_HEADER: Header[] = [
+  {
+    text: 'Leave Code',
+    value: 'leaveCode',
+    fixed: true,
+    width: mobile ? 150 : 300,
+  },
+  { text: 'Requested On', value: 'requestOn', width: 200 },
+  { text: 'Leave Type', value: 'leaveType', width: 200 },
+  { text: 'Start Date', value: 'startDate', width: 200 },
+  { text: 'End Date', value: 'endDate', width: 200 },
+  { text: 'Duration', value: 'duration', sortable: true, width: 150 },
+  { text: 'Day Type', value: 'day', width: 200 },
+  { text: 'Leave Category', value: 'leave_category', width: 200 },
+  { text: 'Status', value: 'status', width: 150 },
+  { text: 'Reason', value: 'reason', width: 200 },
 ];
-
-const items: Item[] = [
-  { "player": "Stephen Curry", "team": "GSW", "number": 30, "position": 'G', "height": '6-2', "weight": 185, "lastAttended": "Davidson", "country": "USA" },
-  { "player": "Lebron James", "team": "LAL", "number": 6, "position": 'F', "height": '6-9', "weight": 250, "lastAttended": "St. Vincent-St. Mary HS (OH)", "country": "USA" },
-  { "player": "Kevin Durant", "team": "BKN", "number": 7, "position": 'F', "height": '6-10', "weight": 240, "lastAttended": "Texas-Austin", "country": "USA" },
-  { "player": "Giannis Antetokounmpo", "team": "MIL", "number": 34, "position": 'F', "height": '6-11', "weight": 242, "lastAttended": "Filathlitikos", "country": "Greece" },
-];
-
 </script>
 <template>
   <div>
-    <!-- <v-data-table
-      v-model="sortBy"
-      :headers="headers"
+    <EasyDataTable
+      :headers="TABLE_HEADER"
       :items="TABLE_DATA"
-      :show-current-page="false"
-      :hide-default-footer="true"
-      class="elevation-0 tw-border tw-rounded"
-      :class="`${
-        configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'
-      }`"
+      hide-footer
+      :table-class-name="configStore.theme ? 'dark-table' : 'light-table'"
     >
-      <template #bottom>
-        <div />
+      <template #item-status="{ status }">
+        <div class="customize-header">
+          <v-sheet
+            :height="30"
+            :width="100"
+            rounded
+            :color="getStatusColor(status)"
+            class="fcc tw-capitalize tw-font-bold"
+          >
+            {{ status }}
+          </v-sheet>
+        </div>
       </template>
-    </v-data-table> -->
-
-    <EasyDataTable show-index :headers="headers" :items="items" hide-footer :table-class-name="configStore.theme ? 'dark-table' : 'light-table'">
     </EasyDataTable>
   </div>
 </template>
 
 <style scoped>
 .dark-table {
-  --easy-table-border: 1px solid #445269;
-  --easy-table-row-border: 1px solid #445269;
+  --easy-table-border: none;
+  --easy-table-row-border: none;
 
   --easy-table-header-font-size: 14px;
   --easy-table-header-height: 50px;
   --easy-table-header-font-color: #c1cad4;
-  --easy-table-header-background-color: #2d3a4f;
+  --easy-table-header-background-color: #0d183d;
 
   --easy-table-header-item-padding: 10px 15px;
 
@@ -84,16 +69,16 @@ const items: Item[] = [
   --easy-table-body-even-row-background-color: #4c5d7a;
 
   --easy-table-body-row-font-color: #c0c7d2;
-  --easy-table-body-row-background-color: #2d3a4f;
+  --easy-table-body-row-background-color: #12204d;
   --easy-table-body-row-height: 50px;
   --easy-table-body-row-font-size: 14px;
 
-  --easy-table-body-row-hover-font-color: #2d3a4f;
-  --easy-table-body-row-hover-background-color: #eee;
+  --easy-table-body-row-hover-font-color: #fff;
+  --easy-table-body-row-hover-background-color: #0d183d;
 
   --easy-table-body-item-padding: 10px 15px;
 
-  --easy-table-footer-background-color: #2d3a4f;
+  --easy-table-footer-background-color: #0d183d;
   --easy-table-footer-font-color: #c0c7d2;
   --easy-table-footer-font-size: 14px;
   --easy-table-footer-padding: 0px 10px;
@@ -103,37 +88,35 @@ const items: Item[] = [
   --easy-table-rows-per-page-selector-option-padding: 10px;
   --easy-table-rows-per-page-selector-z-index: 1;
 
-
   --easy-table-scrollbar-track-color: #2d3a4f;
   --easy-table-scrollbar-color: #2d3a4f;
   --easy-table-scrollbar-thumb-color: #4c5d7a;
-  ;
   --easy-table-scrollbar-corner-color: #2d3a4f;
 
   --easy-table-loading-mask-background-color: #2d3a4f;
 }
 
 .light-table {
-  --easy-table-border: 1px solid #445269;
-  --easy-table-row-border: 1px solid #445269;
+  --easy-table-border: none;
+  --easy-table-row-border: none;
 
   --easy-table-header-font-size: 14px;
   --easy-table-header-height: 50px;
-  --easy-table-header-font-color: #000;
-  --easy-table-header-background-color: #fff;
+  --easy-table-header-font-color: #212121;
+  --easy-table-header-background-color: #eaeaea;
 
   --easy-table-header-item-padding: 10px 15px;
 
-  --easy-table-body-even-row-font-color: #000;
+  --easy-table-body-even-row-font-color: #212121;
   --easy-table-body-even-row-background-color: #4c5d7a;
 
-  --easy-table-body-row-font-color: #000;
+  --easy-table-body-row-font-color: #212121;
   --easy-table-body-row-background-color: #fff;
   --easy-table-body-row-height: 50px;
   --easy-table-body-row-font-size: 14px;
 
-  --easy-table-body-row-hover-font-color: #000;
-  --easy-table-body-row-hover-background-color: #eee;
+  --easy-table-body-row-hover-font-color: #212121;
+  --easy-table-body-row-hover-background-color: #eaeaea;
 
   --easy-table-body-item-padding: 10px 15px;
 
@@ -147,13 +130,16 @@ const items: Item[] = [
   --easy-table-rows-per-page-selector-option-padding: 10px;
   --easy-table-rows-per-page-selector-z-index: 1;
 
-
   --easy-table-scrollbar-track-color: #fff;
   --easy-table-scrollbar-color: #fff;
   --easy-table-scrollbar-thumb-color: #4c5d7a;
-  ;
   --easy-table-scrollbar-corner-color: #fff;
 
   --easy-table-loading-mask-background-color: #fff;
+}
+
+:deep(.vue3-easy-data-table__header th.sortable .sortType-icon) {
+  margin-left: 10px !important;
+  border-bottom-color: #04a5f4 !important;
 }
 </style>

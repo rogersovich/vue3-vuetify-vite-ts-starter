@@ -8,9 +8,6 @@ import {
   type RouteRecordRaw,
 } from 'vue-router';
 
-// Components
-// import HomeView from '@/views/HomeView.vue';
-
 //? Layout
 import AuthLayout from '@/layouts/AuthLayout.vue';
 
@@ -54,7 +51,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: async () => await import('@/views/dashboard/DashboardPage.vue'),
+    component: async () =>
+      await import('@/views/dashboard/home/DashboardPage.vue'),
     meta: {
       group: 'Dashboard',
     },
@@ -63,7 +61,7 @@ const routes: RouteRecordRaw[] = [
     path: '/dashboard/employee-stat',
     name: 'DashboardEmployee',
     component: async () =>
-      await import('@/views/dashboard/DashboardEmployee.vue'),
+      await import('@/views/dashboard/employee/DashboardEmployee.vue'),
     meta: {
       group: 'Dashboard',
     },

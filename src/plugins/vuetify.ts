@@ -46,6 +46,7 @@ const customTheme: ThemeDefinition = {
     error: '#E53935',
     info: '#559BD9',
     success: '#09A262',
+    warning: '#F15D2B',
     'warning-red': '#FF2442',
     'warning-green': '#09A262',
   },
@@ -80,14 +81,7 @@ const customThemeDark: ThemeDefinition = {
 };
 
 let vuetifyConfig: VuetifyOptions = {
-  defaults: {
-    // global: {
-    //   ripple: false,
-    // },
-    // VSheet: {
-    //   elevation: 4,
-    // },
-  },
+  defaults: {},
   // Icon Fonts
   icons: {
     defaultSet: 'mdi',

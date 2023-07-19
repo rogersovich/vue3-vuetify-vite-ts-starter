@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import { useConfig } from '@/store';
-import BannerImg from '@/assets/img/banner-profile.png';
-import Avatar from '@/assets/img/avatar.png';
-import DividerDashboard from '@/components/DividerDashboard.vue';
 import { useDisplay } from 'vuetify';
+
+import { useConfig } from '@/store';
+import Avatar from '@/assets/img/avatar.png';
+import BannerImg from '@/assets/img/banner-profile.png';
+import DividerDashboard from '@/components/general/DividerDashboard.vue';
+
+// Breakpoints
+const { mobile } = useDisplay();
 
 /** Config Store */
 const configStore = useConfig();
-const { mobile } = useDisplay();
 
-const ProfilesDatas = [
+//? Profiles
+const profiles = [
   {
     title: 'Employee ID',
     subtitle: 'PT - GOO34',
@@ -34,10 +38,15 @@ const ProfilesDatas = [
       class="card-dashboard bg-background tw-p-0"
       :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
     >
-      <v-img :src="BannerImg" :height="mobile ? 100 : 200" class="tw-rounded-t-md" cover />
+      <v-img
+        :src="BannerImg"
+        :height="mobile ? 100 : 200"
+        class="tw-rounded-t-md"
+        cover
+      />
       <div class="tw-py-4 tw-px-6 tw-relative">
         <div class="tw-absolute tw--top-14 tw-inset-x-0 tw-text-center">
-          <v-avatar :image="Avatar" :size="mobile ?  80 : 100" />
+          <v-avatar :image="Avatar" :size="mobile ? 80 : 100" />
         </div>
         <div class="tw-mt-6 md:tw-mt-12 tw-text-center text-secondary">
           <div class="tw-font-bold tw-text-base md:tw-text-lg">John Doe</div>
@@ -48,7 +57,7 @@ const ProfilesDatas = [
         </div>
         <DividerDashboard class="tw-my-6" />
         <div class="grid-1 tw-gap-y-6">
-          <div v-for="(item, i) in ProfilesDatas" :key="i" class="fcb">
+          <div v-for="(item, i) in profiles" :key="i" class="fcb">
             <div class="text-primary-200 tw-text-sm md:tw-text-base">
               {{ item.title }}
             </div>

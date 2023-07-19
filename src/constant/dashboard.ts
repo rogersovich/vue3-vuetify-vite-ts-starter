@@ -1,3 +1,5 @@
+import type { Item } from 'vue3-easy-data-table';
+
 export const SUMMARY = [
   {
     title: 'Working Day(s)',
@@ -24,6 +26,7 @@ export const SUMMARY = [
     subtitle: `IDR 0`,
   },
 ];
+
 export const TASK_DUE_SOON = [
   {
     title: '[Wms][Web][Task] Create Goals Design',
@@ -66,7 +69,7 @@ export const MONTH_NAMES = [
   'December',
 ];
 
-export const TABLE_DATA = [
+export const TABLE_DATA: Item[] = [
   {
     leaveCode: 'LV-PTES-PT-CV10435-01-23-001',
     requestOn: 'Mon, 02 Jan 2023',
@@ -76,7 +79,7 @@ export const TABLE_DATA = [
     duration: '1 Day(s)',
     day: 'Full Day',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'approve',
     reason: 'Family Event',
   },
   {
@@ -88,7 +91,7 @@ export const TABLE_DATA = [
     duration: '2 Day(s)',
     day: 'Full Day',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'reject',
     reason: 'Family Event',
   },
   {
@@ -100,7 +103,7 @@ export const TABLE_DATA = [
     duration: '3 Day(s)',
     day: 'Half Day - Second Half',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'pending',
     reason: 'Family Event',
   },
   {
@@ -112,7 +115,7 @@ export const TABLE_DATA = [
     duration: '0.5 Day(s)',
     day: 'Full Day',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'approve',
     reason: 'Family Event',
   },
   {
@@ -124,7 +127,7 @@ export const TABLE_DATA = [
     duration: '1 Day(s)',
     day: 'Half Day - Second Half',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'approve',
     reason: 'Family Event',
   },
   {
@@ -136,7 +139,7 @@ export const TABLE_DATA = [
     duration: '0.5 Day(s)',
     day: 'Full Day',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'reject',
     reason: 'Family Event',
   },
   {
@@ -148,7 +151,7 @@ export const TABLE_DATA = [
     duration: '2 Day(s)',
     day: 'Half Day - First Half',
     leave_category: 'Normal Leave',
-    status: 'approved',
+    status: 'pending',
     reason: 'Family Event',
   },
 ];

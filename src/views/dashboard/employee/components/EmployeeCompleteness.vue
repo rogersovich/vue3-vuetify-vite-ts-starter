@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
-import OverallTaskChart from '@/components/OverallTaskChart.vue';
+import AttendanceCompletenessChart from '@/components/charts/AttendanceCompletenessChart.vue';
 
 /** Config Store */
 const configStore = useConfig();
@@ -11,10 +11,10 @@ const configStore = useConfig();
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
     <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">
-      Overall Task Progress
+      Attendance Completeness
     </div>
     <div class="tw-my-5">
-      <OverallTaskChart />
+      <AttendanceCompletenessChart />
     </div>
   </div>
 </template>

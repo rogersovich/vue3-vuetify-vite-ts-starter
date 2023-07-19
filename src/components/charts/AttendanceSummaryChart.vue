@@ -56,11 +56,15 @@ const chartOptions = {
 </script>
 <template>
   <div>
-    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" :style="{
-      height: '430px',
-      width: '100%',
-
-    }" />
+    <Bar
+      id="my-chart-id"
+      :options="chartOptions"
+      :data="chartData"
+      :style="{
+        height: '430px',
+        width: '100%',
+      }"
+    />
   </div>
 </template>
 

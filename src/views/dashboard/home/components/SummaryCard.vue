@@ -4,17 +4,17 @@ import { ref } from 'vue';
 import { useConfig } from '@/store';
 import { SUMMARY } from '@/constant/dashboard';
 import { formatDatePicker } from '@/helpers/getFormatDate';
-import DividerDashboard from '@/components/DividerDashboard.vue';
+import DividerDashboard from '@/components/general/DividerDashboard.vue';
 
 /** Config Store */
 const configStore = useConfig();
 
+// Date
 const date = ref({
   month: new Date().getMonth(),
   year: new Date().getFullYear(),
 });
 const dp = ref();
-
 const selectDate = () => {
   dp.value.selectDate();
 };
@@ -59,7 +59,11 @@ const selectDate = () => {
     </div>
     <DividerDashboard class="tw-my-5" />
     <div class="grid-12 tw-gap-2 md:tw-gap-4">
-      <div v-for="(item, i) in SUMMARY" :key="i" class="tw-col-span-6 md:tw-col-span-4">
+      <div
+        v-for="(item, i) in SUMMARY"
+        :key="i"
+        class="tw-col-span-6 md:tw-col-span-4"
+      >
         <v-card
           color="background"
           flat
@@ -72,7 +76,9 @@ const selectDate = () => {
           <div class="tw-text-[#808D93] tw-text-xs md:tw-text-sm">
             {{ item.title }}
           </div>
-          <div class="tw-font-bold tw-text-sm md:tw-text-lg text-secondary tw-mt-2">
+          <div
+            class="tw-font-bold tw-text-sm md:tw-text-lg text-secondary tw-mt-2"
+          >
             {{ item.subtitle }}
           </div>
         </v-card>

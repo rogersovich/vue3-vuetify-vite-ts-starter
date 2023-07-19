@@ -1,26 +1,16 @@
 <script setup lang="ts">
-import { useConfig } from '@/store';
-import DividerDashboard from '@/components/DividerDashboard.vue';
-import { TASK_DUE_SOON } from '@/constant/dashboard';
 import { useDisplay } from 'vuetify';
+
+import { useConfig } from '@/store';
+import { TASK_DUE_SOON } from '@/constant/dashboard';
+import DividerDashboard from '@/components/general/DividerDashboard.vue';
+import { getColorChip } from '@/helpers/getFormatColor';
+
+// Breakpoints
+const { mobile } = useDisplay();
 
 /** Config Store */
 const configStore = useConfig();
-
-const { mobile } = useDisplay();
-
-const colorChip = (level: string) => {
-  let color = 'success';
-  if (level == 'Medium') {
-    color = 'success';
-  } else if (level == 'Easy') {
-    color = 'primary-500';
-  } else {
-    color = 'error';
-  }
-
-  return color;
-};
 </script>
 <template>
   <div
@@ -60,7 +50,9 @@ const colorChip = (level: string) => {
               <div class="tw-text-[#808D93] tw-text-xs md:tw-text-sm">
                 {{ item.title }}
               </div>
-              <div class="tw-font-bold tw-text-base md:tw-text-lg text-secondary tw-mt-1 md:tw-mt-2">
+              <div
+                class="tw-font-bold tw-text-base md:tw-text-lg text-secondary tw-mt-1 md:tw-mt-2"
+              >
                 {{ item.subtitle }}
               </div>
             </div>
@@ -68,7 +60,11 @@ const colorChip = (level: string) => {
               <div class="grid-12 tw-items-center tw-gap-3">
                 <div class="tw-col-span-4 fcb">
                   <div class="fcs tw-gap-1 md:tw-gap-2.5">
-                    <v-icon icon="mdi-attachment" color="primary-200" :size="mobile ? 16 : 20" />
+                    <v-icon
+                      icon="mdi-attachment"
+                      color="primary-200"
+                      :size="mobile ? 16 : 20"
+                    />
                     <div class="tw-text-xs md:tw-text-sm text-primary-200">
                       {{ item.total_task }}
                     </div>
@@ -84,11 +80,14 @@ const colorChip = (level: string) => {
                     </div>
                   </div>
                 </div>
-                <div class="tw-col-span-1 fce" v-if="!mobile">
+                <div v-if="!mobile" class="tw-col-span-1 fce">
                   <v-divider vertical class="tw-opacity-90 tw-h-5" />
                 </div>
                 <div class="tw-col-span-4 md:tw-col-span-3 fcc">
-                  <v-chip :size="mobile ? 'x-small' : 'small'" :color="colorChip(item.level)">
+                  <v-chip
+                    :size="mobile ? 'x-small' : 'small'"
+                    :color="getColorChip(item.level)"
+                  >
                     {{ item.level }}
                   </v-chip>
                 </div>

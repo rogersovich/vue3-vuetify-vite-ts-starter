@@ -10,7 +10,9 @@ const configStore = useConfig();
     class="card-dashboard bg-background"
     :class="configStore.theme ? 'tw-border-[#364168]' : 'tw-border-gray-200'"
   >
-    <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">Leave Recap</div>
+    <div class="tw-text-lg md:tw-text-xl tw-font-bold text-secondary">
+      Leave Recap
+    </div>
     <div class="tw-mt-4">
       <LeaveRecapTable />
     </div>

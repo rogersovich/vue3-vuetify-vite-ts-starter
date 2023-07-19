@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useConfig } from '@/store';
-import DividerDashboard from '@/components/DividerDashboard.vue';
+import DividerDashboard from '@/components/general/DividerDashboard.vue';
 
 /** Config Store */
 const configStore = useConfig();
 
-const attendanceToday = [
+// Attendance Options
+const attendancesToday = [
   {
     type: 'Clock In',
     time: '07:00',
@@ -28,7 +29,7 @@ const attendanceToday = [
       <DividerDashboard class="tw-my-2" />
       <div class="grid-12 tw-gap-2 md:tw-gap-4">
         <div
-          v-for="(attendance, i) in attendanceToday"
+          v-for="(attendance, i) in attendancesToday"
           :key="i"
           class="tw-col-span-6"
         >
@@ -49,7 +50,9 @@ const attendanceToday = [
                 <div class="text-primary-200 tw-text-xs md:tw-text-sm">
                   {{ attendance.type }}
                 </div>
-                <div class="text-secondary tw-text-base md:tw-text-xl tw-font-bold tw-mt-1">
+                <div
+                  class="text-secondary tw-text-base md:tw-text-xl tw-font-bold tw-mt-1"
+                >
                   {{ attendance.time }}
                 </div>
               </div>

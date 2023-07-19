@@ -62,7 +62,9 @@ const formatClass = () => {
                 {{ child.title }}
               </div>
             </div>
-            <div class="tw-text-xs md:tw-text-sm tw-mt-1.5 md:tw-mt-3 tw-text-left">
+            <div
+              class="tw-text-xs md:tw-text-sm tw-mt-1.5 md:tw-mt-3 tw-text-left"
+            >
               {{ child.desc }}
             </div>
           </button>

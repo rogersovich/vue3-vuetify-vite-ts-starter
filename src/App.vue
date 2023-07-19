@@ -14,9 +14,9 @@ import { onClickOutside } from '@vueuse/core';
 // import { useTheme } from 'vuetify';
 
 // Components
-import RightAppBar from '@/components/RightAppBar.vue';
-import NavbarComponent from '@/components/NavbarComponent.vue';
-import SubNav from '@/components/SubNav.vue';
+import RightAppBar from '@/components/general/RightAppBar.vue';
+import NavbarComponent from '@/components/general/NavbarComponent.vue';
+import SubNav from '@/components/general/SubNav.vue';
 import IconAxdif from '@/assets/img/logo-axdif-small.png';
 import type { TChildNav } from './types/NavbarTypes';
 import { useDisplay } from 'vuetify';
@@ -117,9 +117,13 @@ onMounted(() => {
       :height="mobile ? 80 : 100"
       name="app-bar"
     >
-      <div class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-2 md:tw-px-4">
+      <div
+        class="tw-flex tw-items-center tw-justify-between tw-w-full tw-px-2 md:tw-px-4"
+      >
         <v-app-bar-title>
-          <div class="tw-flex tw-justify-start tw-items-center tw-gap-4 md:tw-gap-6">
+          <div
+            class="tw-flex tw-justify-start tw-items-center tw-gap-4 md:tw-gap-6"
+          >
             <div class="container-logo-dashboard bg-background">
               <v-img :src="IconAxdif" :height="40" :width="40" />
             </div>
