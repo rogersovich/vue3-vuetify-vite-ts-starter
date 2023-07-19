@@ -67,17 +67,20 @@ const iconSize = mobile.value ? 18 : 15;
         <div class="tw-col-span-12 md:tw-col-span-6">
           <div class="grid-12 tw-items-center tw-gap-0">
             <div
-              class="tw-col-span-5 md:tw-col-span-6 fc md:tw-justify-center tw-gap-2"
+              class="tw-col-span-5 md:tw-col-start-3 md:tw-col-span-4 fc md:tw-justify-center tw-gap-2"
             >
               <div class="tw-text-[12.5px] md:tw-text-xs text-primary-200">
                 {{ task.date_created }}
               </div>
-              <div class="text-primary-200 tw-font-bold tw-text-base tw-mb-2">
+              <div
+                v-if="mobile"
+                class="text-primary-200 tw-font-bold tw-text-base tw-mb-2"
+              >
                 .
               </div>
             </div>
             <div
-              class="tw-col-span-7 md:tw-col-span-6 fc tw-justify-start md:tw-justify-end tw-gap-2"
+              class="tw-col-span-7 md:tw-col-span-6 fc tw-justify-start md:tw-justify-center tw-gap-2"
             >
               <div class="fcs tw-gap-1 md:tw-gap-1">
                 <v-img :src="BranchIcon" :width="iconSize" :height="iconSize" />

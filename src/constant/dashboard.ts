@@ -21,7 +21,7 @@ export const SUMMARY = [
   },
   {
     title: 'Overtime',
-    subtitle: `00 hr 00 mini`,
+    subtitle: `00 hr 00 min`,
   },
   {
     title: 'Claim',

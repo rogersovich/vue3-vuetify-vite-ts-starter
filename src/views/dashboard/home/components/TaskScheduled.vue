@@ -19,6 +19,7 @@ const task = toRef(props, 'task');
 const emits = defineEmits(['selected']);
 
 // Breakpoints
+// eslint-disable-next-line no-unused-vars
 const { mobile } = useDisplay();
 
 /** Config Store */
@@ -35,7 +36,7 @@ const configStore = useConfig();
       @click="emits('selected', { title: task.title, status: 'scheduled' })"
     >
       <div class="grid-12 tw-items-center tw-gap-2">
-        <div class="tw-col-span-12 md:tw-col-span-7">
+        <div class="tw-col-span-12 md:tw-col-span-6">
           <div class="tw-text-[#808D93] tw-text-sm">
             {{ task.title }}
           </div>
@@ -45,10 +46,10 @@ const configStore = useConfig();
             {{ task.subtitle }}
           </div>
         </div>
-        <div class="tw-col-span-12 md:tw-col-span-5">
-          <div class="grid-12 tw-items-center tw-gap-3">
+        <div class="tw-col-span-12 md:tw-col-span-6">
+          <div class="grid-12 tw-items-center tw-gap-3 md:tw-gap-0">
             <div
-              class="tw-col-span-4 fc tw-gap-4 md:tw-gap-0 md:tw-justify-between"
+              class="md:tw-col-start-2 tw-col-span-4 fcc tw-gap-4 md:tw-gap-6"
             >
               <div class="fcs tw-gap-2 md:tw-gap-1">
                 <v-icon icon="mdi-attachment" color="primary-200" :size="20" />
@@ -67,9 +68,6 @@ const configStore = useConfig();
                 </div>
               </div>
             </div>
-            <div v-if="!mobile" class="tw-col-span-1 fcc">
-              <v-divider vertical class="tw-opacity-90 tw-h-5 tw-ml-1" />
-            </div>
             <div class="tw-col-span-3 fcc">
               <v-chip
                 :size="'small'"
@@ -80,7 +78,7 @@ const configStore = useConfig();
               </v-chip>
             </div>
             <div class="tw-col-span-4">
-              <div class="fcs tw-gap-2">
+              <div class="fcc tw-gap-2">
                 <v-icon
                   :size="15"
                   icon="mdi-calendar-blank-outline"
